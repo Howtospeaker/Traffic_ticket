@@ -7,8 +7,7 @@ import org.junit.Test;
 public class AppTest 
 {
     @Test
-    public void test1()
-    {
-        assertTrue( true );
+    public void test1() {
+        System.out.println("hello");
     }
 }
