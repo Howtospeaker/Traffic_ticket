@@ -1,14 +1,12 @@
 package com.TrafficTicket;
 
-import static org.junit.Assert.assertTrue;
-
+import com.TrafficTicket.controller.AdminController;
+import com.TrafficTicket.entity.Car;
 import org.junit.Test;
 
-public class AppTest 
-{
-    @Test
-    public void test1() {
-        System.out.println("hello");
-        System.out.println("111");
-    }
+import java.util.List;
+import java.util.Scanner;
+
+public class AppTest {
+
 }

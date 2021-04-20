@@ -3,7 +3,44 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.TrafficTicket.dao.AdminDao">
-    <select id="" resultType="">
-  
+    <!--对车辆信息表的操作-->
+    <insert id="addCarInfo">
+        insert into carInfo(carId,driverId,licenseNum) values (#{carId},#{driverId},#{licenseNum})
+    </insert>
+    <update id="updateCarInfo">
+        UPDATE carInfo set carId=#{carId},driverId=#{driverId},licenseNum=#{licenseNum} where carId=#{carId}
+    </update>
+    <delete id="deleteCarInfo">
+        delete from carInfo where carId=#{carId}
+    </delete>
+    <select id="selectAllCarInfo" resultType="Car">
+        select * from carInfo
+    </select>
+    <select id="findDriverId" resultType="int">
+        select count(driverId) from driver where driverId = #{driverId}
+    </select>
+    <select id="findCarId" resultType="int">
+        select count(carId) from carInfo where carId = #{carId}
+    </select>
+    <!--对交警信息表的操作-->
+    <insert id="addPolice">
+        insert into policeInfo(policeId,name,policeStation,loginAct,loginPwd) values (#{policeId},#{name},#{policeStation},#{loginAct},#{loginPwd})
+    </insert>
+    <update id="updatePolice">
+        update policeInfo set policeId=#{policeId},name=#{name},policeStation=#{policeStation},loginAct=#{loginAct},loginPwd=#{loginPwd} where policeId=#{policeId}
+    </update>
+    <delete id="deletePolice">
+        delete from policeInfo where policeId=#{policeId}
+    </delete>
+    <select id="selectAllPolice" resultType="Police">
+        select * from policeInfo
+    </select>
+    <select id="findPolice" resultType="int">
+        select count(policeId) from policeInfo where policeId=#{policeId}
+    </select>
+
+    <!--查询罚单视图-->
+    <select id="selectTicketView" resultType="AdminTicketView">
+        SELECT * FROM adminticketview
     </select>
 </mapper>

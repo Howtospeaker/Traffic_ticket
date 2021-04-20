@@ -5,10 +5,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Police {
+public class AdminTicketView {
+    private Integer driverId;
+    private String carId;
     private String policeId;
-    private String name;
-    private String policeStation;
-    private String loginAct;
-    private String loginPwd;
 }

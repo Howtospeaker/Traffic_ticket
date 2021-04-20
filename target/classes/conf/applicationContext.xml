@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!--Spring的配置文件-->
     <context:property-placeholder location="classpath:conf/jdbc.properties"/>
     <!--声明数据源，连接数据库-->
@@ -29,4 +30,8 @@
     <context:component-scan base-package="com.TrafficTicket.service"/>
 
     <!--事务配置：注解的配置，aspectj的配置-->
+
+
+    <!--创建springmvc配置文件,声明controller和其他web相关的对象-->
+    <context:component-scan base-package="com.TrafficTicket.controller"/>
 </beans>
