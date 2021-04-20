@@ -5,66 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d03970ba-f1b2-4ff0-9fd5-60e6c60ed558" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/AdminTicketView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/exception/CanNotFindException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/AdminTicketView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/exception/CanNotFindException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/CarController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/DriverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/DriverController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/PoliceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/PoliceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/TicketController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/CarDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/CarDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/DriverDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/DriverDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/PoliceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/PoliceDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/PoliceDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/PoliceDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/TicketDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/TicketDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Police.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Police.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/CarService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/TicketService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/AdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/CarServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/DriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/DriverServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/PoliceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/PoliceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/PoliceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/PoliceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/TicketServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/conf/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/conf/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/TrafficTicket/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TrafficTicket/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/CarController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/TicketController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/AdminDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/AdminDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/AdminDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/AdminDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/CarDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/CarDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/DriverDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/DriverDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/DriverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/DriverController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/PoliceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/PoliceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/TicketDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/TicketDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Police.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Police.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/AdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/CarService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/TicketService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/AdminServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/CarServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/DriverServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/DriverServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Ticket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/PoliceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/PoliceService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/PoliceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/PoliceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/TicketServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/conf/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/conf/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/TrafficTicket/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/TrafficTicket/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +75,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -147,12 +108,12 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.test">
-    <configuration name="MD5Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.TrafficTicket.util.MD5Util" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TrafficTicket.Main" />
       <module name="Traffic_ticket" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.TrafficTicket.util.*" />
+          <option name="PATTERN" value="com.TrafficTicket.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -160,12 +121,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.TrafficTicket.Main" />
+    <configuration name="UUIDUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TrafficTicket.util.UUIDUtil" />
       <module name="Traffic_ticket" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.TrafficTicket.*" />
+          <option name="PATTERN" value="com.TrafficTicket.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -233,10 +194,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.test" />
+        <item itemvalue="Application.UUIDUtil" />
         <item itemvalue="JUnit.AppTest" />
         <item itemvalue="JUnit.AppTest.AdminControllerTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MD5Util" />
       </list>
     </recent_temporary>
   </component>
@@ -251,7 +212,7 @@
       <workItem from="1618753037744" duration="5836000" />
       <workItem from="1618797106811" duration="10963000" />
       <workItem from="1618824426975" duration="13915000" />
-      <workItem from="1618882534655" duration="14399000" />
+      <workItem from="1618882534655" duration="23404000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1618755431877</created>
@@ -281,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618820135320</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="123">
+      <created>1618905606494</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1618905606494</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +261,8 @@
     <MESSAGE value="2" />
     <MESSAGE value="3" />
     <MESSAGE value="important" />
-    <option name="LAST_COMMIT_MESSAGE" value="important" />
+    <MESSAGE value="123" />
+    <option name="LAST_COMMIT_MESSAGE" value="123" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,22 +1,21 @@
 package com.TrafficTicket;
 
 import com.TrafficTicket.controller.AdminController;
+import com.TrafficTicket.controller.PoliceController;
 import com.TrafficTicket.entity.AdminTicketView;
 import com.TrafficTicket.entity.Car;
 import com.TrafficTicket.entity.Police;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
+import com.TrafficTicket.entity.Ticket;
+import com.TrafficTicket.util.UUIDUtil;
 
 import java.util.List;
 import java.util.Scanner;
 
 
-@Component
 public class test {
     //管理员菜单界面
     public static void AdminControllerTest() {
         AdminController adminController = new AdminController();
-//        AdminController adminController = (AdminController) new ClassPathXmlApplicationContext("conf/applicationContext.xml").getBean("adminController");
         int flag = 0;
         Scanner scan = new Scanner(System.in);
         while (true) {
@@ -125,7 +124,44 @@ public class test {
     }
     //交警菜单界面
     public static void PoliceControllerTest(){
-
+        PoliceController policeController = new PoliceController();
+        int flag = 0;
+        Scanner scan = new Scanner(System.in);
+        while(true){
+            System.out.println("交警操作界面");
+            System.out.println("1.罚单录入 2.修改罚单 3.删除罚单 4.查询罚单 5.退出");
+            flag = scan.nextInt();
+            switch (flag){
+                case 1:{
+                    System.out.println("请输入你要录入的罚单信息");
+                    Ticket ticket = new Ticket(UUIDUtil.getUUID(),4408252,"北A-666666","A0086","2021-4-20 20:01:01","海珠",100,0);
+                    System.out.println(policeController.addTicket(ticket));
+                    break;
+                }
+                case 2:{
+                    System.out.println("请输入你要修改的罚单信息");
+                    Ticket ticket = new Ticket("123",4408252,"北A-666666","A0086","2021-4-20 20:01:01","海珠",500,1);
+                    System.out.println(policeController.updateTicket(ticket));
+                    break;
+                }
+                case 3:{
+                    System.out.println("请输入你要删除的罚单信息");
+                    System.out.println(policeController.deleteTicket("123"));
+                    break;
+                }
+                case 4:{
+                    List<Ticket> list = policeController.selectAllTicket();
+                    list.forEach(ticket -> System.out.println(ticket));
+                    break;
+                }
+                case 5:{
+                    System.out.println("退出成功");
+                    System.exit(1);
+                    break;
+                }
+                default:{break;}
+            }
+        }
     }
     //驾驶员菜单界面
     public static void DriverControllerTest(){}

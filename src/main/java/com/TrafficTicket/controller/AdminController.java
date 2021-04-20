@@ -5,11 +5,9 @@ import com.TrafficTicket.entity.Car;
 import com.TrafficTicket.entity.Police;
 import com.TrafficTicket.service.AdminService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
-@Controller
 public class AdminController {
 /*
     管理员：

@@ -1,8 +1,5 @@
 package com.TrafficTicket.controller;
 
-import org.springframework.stereotype.Controller;
-
-@Controller
 public class DriverController {
 /*
     驾驶员：

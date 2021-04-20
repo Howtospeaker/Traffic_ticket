@@ -3,5 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.TrafficTicket.dao.PoliceDao">
-
+    <!--对罚单信息表的操作-->
+    <insert id="addTicket">
+        insert into TicketInfo(ticketId,driverId,carId,policeId,vioTime,vioAddress,fine,payStatus)
+         values (#{ticketId},#{driverId},#{carId},#{policeId},#{vioTime},#{vioAddress},#{fine},#{payStatus})
+    </insert>
+    <update id="updateTicket">
+        update ticketInfo set ticketId=#{ticketId},driverId=#{driverId},carId=#{carId},policeId=#{policeId},vioTime=#{vioTime},vioAddress=#{vioAddress},fine=#{fine},payStatus=#{payStatus} where ticketId=#{ticketId}
+    </update>
+    <delete id="deleteTicket">
+        delete from ticketInfo where ticketId=#{ticketId}
+    </delete>
+    <select id="selectAllTicket" resultType="Ticket">
+        select * from ticketInfo
+    </select>
+    <select id="findTicket" resultType="int">
+        select count(ticketId) from ticketInfo where ticketId=#{ticketId}
+    </select>
 </mapper>
