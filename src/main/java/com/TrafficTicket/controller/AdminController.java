@@ -4,8 +4,11 @@ import com.TrafficTicket.entity.AdminTicketView;
 import com.TrafficTicket.entity.Car;
 import com.TrafficTicket.entity.Police;
 import com.TrafficTicket.service.AdminService;
+import com.TrafficTicket.util.MD5Util;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 public class AdminController {
@@ -73,5 +76,22 @@ public class AdminController {
     //罚单查询
     public List<AdminTicketView> AdminSelectTicketView(){
         return adminService.selectTicketView();
+    }
+
+    //管理员登录
+    public boolean login(String loginAct, String loginPwd) {
+        try {
+            InetAddress addr = InetAddress.getLocalHost();
+            String ip = addr.toString();
+            System.out.println(ip);
+            loginPwd= MD5Util.getMD5(loginPwd);
+            if (adminService.login(loginAct,loginPwd,ip)==1){
+                System.out.println("登录成功");
+                return true;
+            }
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

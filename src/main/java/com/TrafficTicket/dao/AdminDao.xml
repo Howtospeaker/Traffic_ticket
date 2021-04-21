@@ -43,4 +43,11 @@
     <select id="selectTicketView" resultType="AdminTicketView">
         SELECT * FROM adminticketview
     </select>
+
+    <select id="findAdminIp" resultType="int">
+        select count(*) from admin where allowsIp=#{allowsIp}
+    </select>
+    <select id="login" resultType="int">
+        select count(*) from admin where loginAct=#{loginAct} and loginPwd=#{loginPwd}
+    </select>
 </mapper>

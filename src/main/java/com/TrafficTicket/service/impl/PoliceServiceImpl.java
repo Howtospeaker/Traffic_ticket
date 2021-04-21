@@ -51,4 +51,9 @@ public class PoliceServiceImpl implements PoliceService {
     public List<Ticket> selectAllTicket() {
         return policeDao.selectAllTicket();
     }
+
+    @Override
+    public int login(String loginAct, String loginPwd) {
+        return policeDao.login(loginAct,loginPwd);
+    }
 }

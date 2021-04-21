@@ -8,6 +8,7 @@ import com.TrafficTicket.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.net.InetAddress;
 import java.util.List;
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -16,12 +17,16 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int addCarInfo(Car car) {
-        //先判断是否存在此车主
-        int flag = adminDao.findDriverId(car.getDriverId());
-        if (flag == 1){
-            return adminDao.addCarInfo(car);
+        //先判断是否存在此驾驶员
+        if (adminDao.findDriverId(car.getDriverId())==1){
+            //判断此车牌号是否已经存在
+            if (adminDao.findCarId(car.getCarId())==0){
+                return adminDao.addCarInfo(car);
+            } else {
+                System.out.println("此车牌号已存在");
+            }
         } else {
-            System.out.println("找不到"+car.getDriverId()+"编号的车主");
+            System.out.println("此驾驶员不存在");
         }
         return 0;
     }
@@ -31,15 +36,15 @@ public class AdminServiceImpl implements AdminService {
         //先查找是否存在此车牌号
         if (adminDao.findCarId(car.getCarId()) == 1){
             //先判断需要换的新车主是否存在
-            if (adminDao.findDriverId(car.getDriverId())==0){
-                System.out.println("找不到"+car.getDriverId()+"编号的车主");
+            if (adminDao.findDriverId(car.getDriverId()) == 1){
+                return adminDao.updateCarInfo(car);
             } else{
                 System.out.println("找不到"+car.getDriverId()+"编号的车主");
             }
         } else {
             System.out.println("找不到"+car.getCarId()+"车牌号的车");
         }
-        return adminDao.updateCarInfo(car);
+        return 0;
     }
 
     @Override
@@ -59,6 +64,10 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int addPolice(Police police) {
+        if (adminDao.findPolice(police.getPoliceId())==1){
+            System.out.println("此交警已存在");
+            return 0;
+        }
         return adminDao.addPolice(police);
     }
 
@@ -96,4 +105,17 @@ public class AdminServiceImpl implements AdminService {
         return adminDao.selectTicketView();
     }
 
+    @Override
+    public int login(String loginAct, String loginPwd, String ip) {
+        if (adminDao.findAdminIp(ip)==1){
+            if (adminDao.login(loginAct,loginPwd)==1){
+                return 1;
+            } else {
+                System.out.println("账号密码错误");
+            }
+        } else {
+            System.out.println("请在允许的ip地址下登录！");
+        }
+        return 0;
+    }
 }

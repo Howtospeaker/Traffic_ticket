@@ -20,4 +20,9 @@
     <select id="findTicket" resultType="int">
         select count(ticketId) from ticketInfo where ticketId=#{ticketId}
     </select>
+
+    <!--交警登录-->
+    <select id="login" resultType="int">
+        select count(*) from policeInfo where loginAct=#{loginAct} and loginPwd=#{loginPwd}
+    </select>
 </mapper>

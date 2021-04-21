@@ -5,25 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d03970ba-f1b2-4ff0-9fd5-60e6c60ed558" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/DriverTicketView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/DriverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/DriverController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/PoliceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/PoliceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/DriverDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/DriverDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/DriverDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/DriverDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/PoliceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/PoliceDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/PoliceDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/PoliceDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/DriverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/DriverService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/PoliceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/PoliceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/AdminServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/DriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/DriverServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/PoliceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/PoliceServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/DriverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/DriverController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/PoliceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/PoliceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/PoliceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/PoliceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/PoliceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/PoliceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/DriverDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/DriverDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/DriverDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/DriverDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/DriverService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/DriverService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/AdminServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/DriverServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/DriverServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +88,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../IfYouAre" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.14941406" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
@@ -147,15 +153,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -212,7 +216,8 @@
       <workItem from="1618753037744" duration="5836000" />
       <workItem from="1618797106811" duration="10963000" />
       <workItem from="1618824426975" duration="13915000" />
-      <workItem from="1618882534655" duration="23404000" />
+      <workItem from="1618882534655" duration="31057000" />
+      <workItem from="1618991797498" duration="5039000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1618755431877</created>
@@ -249,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618905606494</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="456">
+      <created>1618924015609</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1618924015609</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +274,8 @@
     <MESSAGE value="3" />
     <MESSAGE value="important" />
     <MESSAGE value="123" />
-    <option name="LAST_COMMIT_MESSAGE" value="123" />
+    <MESSAGE value="456" />
+    <option name="LAST_COMMIT_MESSAGE" value="456" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

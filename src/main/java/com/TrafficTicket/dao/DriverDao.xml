@@ -3,5 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.TrafficTicket.dao.DriverDao">
+    <select id="selectTicketView" resultType="DriverTicketView">
+        select * from driverTicketView
+    </select>
+    <select id="findTicketByDriver" resultType="int">
+        select count(1) from ticketInfo where driverId=#{driverId}
+    </select>
+    <update id="updateTicketFine">
+        update ticketInfo set fine=1 where driverId=#{driverId}
+    </update>
+    <select id="findTicketFine" resultType="int">
+        select fine from ticketInfo where driverId=#{driverId} as
+    </select>
 
+    <!--驾驶员登录-->
+    <select id="login" resultType="int">
+        select count(*) from driver where loginAct=#{loginAct} and loginPwd=#{loginPwd}
+    </select>
 </mapper>

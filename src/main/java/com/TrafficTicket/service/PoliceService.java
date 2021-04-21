@@ -12,4 +12,6 @@ public interface PoliceService {
     int deleteTicket(String ticketId);
 
     List<Ticket> selectAllTicket();
+
+    int login(String loginAct, String loginPwd);
 }

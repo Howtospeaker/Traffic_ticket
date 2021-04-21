@@ -5,6 +5,7 @@ import com.TrafficTicket.entity.Car;
 import com.TrafficTicket.entity.Police;
 import org.springframework.stereotype.Service;
 
+import java.net.InetAddress;
 import java.util.List;
 
 public interface AdminService {
@@ -25,4 +26,6 @@ public interface AdminService {
     List<Police> selectAllPolice();
 
     List<AdminTicketView> selectTicketView();
+
+    int login(String loginAct, String loginPwd, String ip);
 }

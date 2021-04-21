@@ -3,8 +3,10 @@ package com.TrafficTicket.dao;
 import com.TrafficTicket.entity.AdminTicketView;
 import com.TrafficTicket.entity.Car;
 import com.TrafficTicket.entity.Police;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.net.InetAddress;
 import java.util.List;
 
 public interface AdminDao {
@@ -25,4 +27,8 @@ public interface AdminDao {
 
     //查询罚单视图
     List<AdminTicketView> selectTicketView();
+
+    //管理员登陆操作
+    int findAdminIp(String allowsIp);
+    int login(@Param("loginAct") String loginAct,@Param("loginPwd") String loginPwd);
 }

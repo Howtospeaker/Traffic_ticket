@@ -3,6 +3,7 @@ package com.TrafficTicket.controller;
 
 import com.TrafficTicket.entity.Ticket;
 import com.TrafficTicket.service.PoliceService;
+import com.TrafficTicket.util.MD5Util;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -39,5 +40,16 @@ public class PoliceController {
     //罚单查询
     public List<Ticket> selectAllTicket(){
         return policeService.selectAllTicket();
+    }
+
+    public boolean login(String loginAct, String loginPwd) {
+        loginPwd= MD5Util.getMD5(loginPwd);
+        if (policeService.login(loginAct,loginPwd)==1){
+            System.out.println("登录成功");
+            return true;
+        } else {
+            System.out.println("账号密码错误");
+        }
+        return false;
     }
 }
