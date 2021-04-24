@@ -7,6 +7,7 @@ import com.TrafficTicket.service.PoliceService;
 import com.TrafficTicket.util.MD5Util;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.swing.*;
 import java.util.List;
 
 public class PoliceController {
@@ -50,6 +51,7 @@ public class PoliceController {
             System.out.println("登录成功");
             return true;
         } else {
+            JOptionPane.showMessageDialog(null, "账号或密码输入错误，请检查！", "登录失败",JOptionPane.WARNING_MESSAGE);
             System.out.println("账号密码错误");
         }
         return false;

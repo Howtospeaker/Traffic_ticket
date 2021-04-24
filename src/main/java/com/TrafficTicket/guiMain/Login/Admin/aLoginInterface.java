@@ -1,6 +1,9 @@
 package com.TrafficTicket.guiMain.Login.Admin;
 
+import com.TrafficTicket.controller.AdminController;
+import com.TrafficTicket.controller.PoliceController;
 import com.TrafficTicket.guiMain.main.selectIdentity;
+import com.TrafficTicket.guiMain.test.Example;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,14 +57,16 @@ public class aLoginInterface {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(true) {
+                //获取用户输入的数据
+                String userNameText = usename.getText().trim();
+                String passwordText = String.copyValueOf(password.getPassword());
+                AdminController adminController = new AdminController();
+                if(adminController.login(userNameText,passwordText)) {
+                    new Example().init();
                     //接入主界面
                     jf.dispose();
-                }else {
-                    JOptionPane.showMessageDialog(null, "账号或密码输入错误，请检查！", "登录失败",JOptionPane.WARNING_MESSAGE);
                 }
             }
-
         });
 
         JButton button3 = new JButton("返回");

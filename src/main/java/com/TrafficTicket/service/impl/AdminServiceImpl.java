@@ -8,6 +8,7 @@ import com.TrafficTicket.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.*;
 import java.net.InetAddress;
 import java.util.List;
 @Service
@@ -111,9 +112,11 @@ public class AdminServiceImpl implements AdminService {
             if (adminDao.login(loginAct,loginPwd)==1){
                 return 1;
             } else {
+                JOptionPane.showMessageDialog(null, "账号或密码输入错误，请检查！", "登录失败",JOptionPane.WARNING_MESSAGE);
                 System.out.println("账号密码错误");
             }
         } else {
+            JOptionPane.showMessageDialog(null, "请在允许的ip地址下登录！", "登录失败",JOptionPane.WARNING_MESSAGE);
             System.out.println("请在允许的ip地址下登录！");
         }
         return 0;

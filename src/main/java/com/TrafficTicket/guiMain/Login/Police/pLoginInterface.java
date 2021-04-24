@@ -1,12 +1,18 @@
 package com.TrafficTicket.guiMain.Login.Police;
 
+import com.TrafficTicket.controller.PoliceController;
+import com.TrafficTicket.entity.Ticket;
 import com.TrafficTicket.guiMain.Login.Driver.dRegistrationInterface;
 import com.TrafficTicket.guiMain.main.selectIdentity;
+import com.TrafficTicket.guiMain.test.Example;
+import com.TrafficTicket.util.UUIDUtil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Scanner;
 
 public class pLoginInterface {
     public void init(){
@@ -52,14 +58,18 @@ public class pLoginInterface {
 
         JButton button1 = new JButton("登录");
         buttonPanel.add(button1);
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(true) {
+                //获取用户输入的数据
+                String userNameText = usename.getText().trim();
+                String passwordText = String.copyValueOf(password.getPassword());
+                PoliceController policeController = new PoliceController();
+                if(policeController.login(userNameText,passwordText)) {
+                    new Example().init();
                     //接入主界面
                     jf.dispose();
-                }else {
-                    JOptionPane.showMessageDialog(null, "账号或密码输入错误，请检查！", "登录失败",JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
