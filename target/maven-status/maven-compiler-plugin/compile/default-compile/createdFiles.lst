@@ -19,6 +19,7 @@ com\TrafficTicket\controller\PoliceController.class
 com\TrafficTicket\util\UUIDUtil.class
 com\TrafficTicket\entity\Admin.class
 com\TrafficTicket\controller\AdminController.class
+com\TrafficTicket\entity\AdminTicketView.class
 com\TrafficTicket\entity\Car.class
 com\TrafficTicket\entity\Ticket.class
 com\TrafficTicket\dao\CarDao.class

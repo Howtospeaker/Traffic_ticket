@@ -14,4 +14,5 @@ public class Ticket {
     private String vioAddress;
     private Integer fine;
     private Integer payStatus;
+
 }
