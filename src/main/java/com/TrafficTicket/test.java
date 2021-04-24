@@ -5,10 +5,10 @@ import com.TrafficTicket.controller.DriverController;
 import com.TrafficTicket.controller.PoliceController;
 import com.TrafficTicket.entity.*;
 import com.TrafficTicket.util.UUIDUtil;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Scanner;
-
 
 public class test {
     //管理员菜单界面
@@ -53,6 +53,7 @@ public class test {
                                 case 4: {
                                     List<Car> list = adminController.selectAllCarInfo();
                                     list.forEach(car -> System.out.println(car));
+
                                     break;
                                 }
                                 case 5: {

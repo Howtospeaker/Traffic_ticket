@@ -1,5 +1,6 @@
 package com.TrafficTicket.service;
 
+import com.TrafficTicket.entity.Police;
 import com.TrafficTicket.entity.Ticket;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface PoliceService {
     List<Ticket> selectAllTicket();
 
     int login(String loginAct, String loginPwd);
+
+    boolean register(Police police);
 }

@@ -1,5 +1,6 @@
 package com.TrafficTicket.dao;
 
+import com.TrafficTicket.entity.Driver;
 import com.TrafficTicket.entity.DriverTicketView;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,4 +16,6 @@ public interface DriverDao {
     int findTicketFine(Integer driverId);
 
     int login(@Param("loginAct") String loginAct,@Param("loginPwd") String loginPwd);
+
+    boolean register(Driver driver);
 }

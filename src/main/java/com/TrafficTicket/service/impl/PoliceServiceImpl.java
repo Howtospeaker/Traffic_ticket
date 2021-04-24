@@ -2,6 +2,7 @@ package com.TrafficTicket.service.impl;
 
 import com.TrafficTicket.dao.AdminDao;
 import com.TrafficTicket.dao.PoliceDao;
+import com.TrafficTicket.entity.Police;
 import com.TrafficTicket.entity.Ticket;
 import com.TrafficTicket.service.PoliceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,15 @@ public class PoliceServiceImpl implements PoliceService {
     @Override
     public int login(String loginAct, String loginPwd) {
         return policeDao.login(loginAct,loginPwd);
+    }
+
+    @Override
+    public boolean register(Police police) {
+        if (adminDao.findPolice(police.getPoliceId())==0){
+            if (adminDao.addPolice(police)==1)
+                return true;
+        } else
+            System.out.println("此交警已存在");
+        return false;
     }
 }

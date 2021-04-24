@@ -20,4 +20,9 @@
     <select id="login" resultType="int">
         select count(*) from driver where loginAct=#{loginAct} and loginPwd=#{loginPwd}
     </select>
+    <!--驾驶员注册-->
+    <insert id="register">
+        insert into driver(driverId,name,sex,age,driverNum,loginAct,loginPwd)
+        values (#{driverId},#{name},#{sex},#{age},#{driverNum},#{loginAct},#{loginPwd})
+    </insert>
 </mapper>

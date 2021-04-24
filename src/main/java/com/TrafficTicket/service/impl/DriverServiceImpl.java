@@ -1,6 +1,8 @@
 package com.TrafficTicket.service.impl;
 
+import com.TrafficTicket.dao.AdminDao;
 import com.TrafficTicket.dao.DriverDao;
+import com.TrafficTicket.entity.Driver;
 import com.TrafficTicket.entity.DriverTicketView;
 import com.TrafficTicket.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import java.util.List;
 public class DriverServiceImpl implements DriverService {
     @Autowired
     private DriverDao driverDao;
+    @Autowired
+    private AdminDao adminDao;
     @Override
     public List<DriverTicketView> selectTicketView() {
         return driverDao.selectTicketView();
@@ -35,5 +39,15 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public int login(String loginAct, String loginPwd) {
         return driverDao.login(loginAct,loginPwd);
+    }
+
+    @Override
+    public boolean register(Driver driver) {
+        if (adminDao.findDriverId(driver.getDriverId())==0){
+            return driverDao.register(driver);
+        } else {
+            System.out.println("此驾驶员已存在");
+        }
+        return false;
     }
 }

@@ -1,6 +1,7 @@
 package com.TrafficTicket.controller;
 
 
+import com.TrafficTicket.entity.Police;
 import com.TrafficTicket.entity.Ticket;
 import com.TrafficTicket.service.PoliceService;
 import com.TrafficTicket.util.MD5Util;
@@ -42,6 +43,7 @@ public class PoliceController {
         return policeService.selectAllTicket();
     }
 
+    //交警登录
     public boolean login(String loginAct, String loginPwd) {
         loginPwd= MD5Util.getMD5(loginPwd);
         if (policeService.login(loginAct,loginPwd)==1){
@@ -51,5 +53,10 @@ public class PoliceController {
             System.out.println("账号密码错误");
         }
         return false;
+    }
+    //交警注册
+    public boolean register(Police police){
+        police.setLoginPwd(MD5Util.getMD5(police.getLoginPwd()));
+        return policeService.register(police);
     }
 }
