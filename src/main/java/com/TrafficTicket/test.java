@@ -73,37 +73,37 @@ public class test {
                             System.out.println("1.录入 2.更新 3.删除 4.查询 5.退出 ");
                             flag = scan.nextInt();
                             switch (flag) {
-                                case 1: {
-                                    System.out.println("请输入你要录入的交警信息");
-                                    Police police = new Police("C2221","李云龙","意大利炮分局","123","123");
-                                    System.out.println(adminController.addPolice(police));
-                                    break;
-                                }
-                                case 2: {
-                                    System.out.println("请输入你要更新的交警信息");
-                                    Police police = new Police("C2221","李云龙","意大利炮总局","123","123");
-                                    System.out.println(adminController.updatePolice(police));
-                                    break;
-                                }
-                                case 3: {
-                                    System.out.println("请输入你要删除的交警信息");
-                                    System.out.println(adminController.deletePolice("C2222"));
-                                    break;
-                                }
-                                case 4: {
-                                    List<Police> list = adminController.selectAllPolice();
-                                    list.forEach(police -> System.out.println(police));
-                                    break;
-                                }
-                                case 5: {
-                                    System.out.println("退出成功");
-                                    AdminControllerTest();
-                                    break;
-                                }
-                                default: {
-                                    System.out.println("输入错误,请重新输入");
-                                    break;
-                                }
+//                                case 1: {
+//                                    System.out.println("请输入你要录入的交警信息");
+//                                    Police police = new Police("C2221","李云龙","意大利炮分局","123","123");
+//                                    System.out.println(adminController.addPolice(police));
+//                                    break;
+//                                }
+//                                case 2: {
+//                                    System.out.println("请输入你要更新的交警信息");
+//                                    Police police = new Police("C2221","李云龙","意大利炮总局","123","123");
+//                                    System.out.println(adminController.updatePolice(police));
+//                                    break;
+//                                }
+//                                case 3: {
+//                                    System.out.println("请输入你要删除的交警信息");
+//                                    System.out.println(adminController.deletePolice("C2222"));
+//                                    break;
+//                                }
+//                                case 4: {
+//                                    List<Police> list = adminController.selectAllPolice();
+//                                    list.forEach(police -> System.out.println(police));
+//                                    break;
+//                                }
+//                                case 5: {
+//                                    System.out.println("退出成功");
+//                                    AdminControllerTest();
+//                                    break;
+//                                }
+//                                default: {
+//                                    System.out.println("输入错误,请重新输入");
+//                                    break;
+//                                }
                             }
                         }
                     }

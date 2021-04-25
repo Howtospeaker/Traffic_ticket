@@ -5,29 +5,139 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d03970ba-f1b2-4ff0-9fd5-60e6c60ed558" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/DriverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/DriverController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/PoliceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/controller/PoliceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Police.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/entity/Police.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/AdminServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Admin/adminPoliceRightSplitPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Driver/driverRightSplitPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Driver/driverUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Driver/testm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Driver/ticketRightSplitPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Police/policeRightSplitPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Police/policeTicketRightSplitPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Police/policeUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/Traffic_ticket.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminPoliceRightSplitPane$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminPoliceRightSplitPane$MyTableModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminPoliceRightSplitPane.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminUI$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminUI$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminUI$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminUI$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminUI$MyRenderer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/driverRightSplitPane$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/driverRightSplitPane$MyTableModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/driverRightSplitPane.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/driverUI$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/driverUI$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/driverUI$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/driverUI$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/driverUI$MyRenderer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/driverUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/testm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/ticketRightSplitPane$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/ticketRightSplitPane$MyTableModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Driver/ticketRightSplitPane.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeRightSplitPane$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeRightSplitPane$MyTableModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeRightSplitPane.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeTicketRightSplitPane$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeTicketRightSplitPane$MyTableModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeTicketRightSplitPane.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeUI$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeUI$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeUI$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeUI$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeUI$MyRenderer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Police/policeUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_21.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_21.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_20.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_20.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/dao/AdminDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/Login/Admin/aLoginInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/Login/Admin/aLoginInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/Login/Driver/dRegistrationInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/Login/Driver/dRegistrationInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/Login/Police/pLoginInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/Login/Police/pLoginInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/Login/Police/pRegistrationInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/Login/Police/pRegistrationInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/main/selectIdentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/main/selectIdentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Admin/adminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Admin/adminUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Admin/testmain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/mainUI/Admin/testmain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/test/rightSplitPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/guiMain/test/rightSplitPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/DriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/DriverServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/PoliceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/service/impl/PoliceServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TrafficTicket/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/TrafficTicket/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TrafficTicket/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/DriverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/DriverController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/PoliceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/controller/PoliceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/AdminDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/AdminDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/AdminDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/AdminDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/CarDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/CarDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/DriverDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/DriverDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/PoliceDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/TicketDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/dao/TicketDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/AdminTicketView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/AdminTicketView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/DriverTicketView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/DriverTicketView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Police.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Police.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/entity/Ticket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/exception/CanNotFindException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/exception/CanNotFindException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/exception/LoginException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/exception/LoginException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/exception/registerException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/exception/registerException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Admin/aLoginInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Admin/aLoginInterface$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Admin/aLoginInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Admin/aLoginInterface$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Admin/aLoginInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Admin/aLoginInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dLoginInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dLoginInterface$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dLoginInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dLoginInterface$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dLoginInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dLoginInterface$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dLoginInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dLoginInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dRegistrationInterface$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dRegistrationInterface$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Driver/dRegistrationInterface.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pLoginInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pLoginInterface$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pLoginInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pLoginInterface$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pLoginInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pLoginInterface$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pLoginInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pLoginInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/AdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/AdminServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/PoliceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/PoliceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/TrafficTicket/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/TrafficTicket/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pRegistrationInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pRegistrationInterface$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pRegistrationInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pRegistrationInterface$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pRegistrationInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/Login/Police/pRegistrationInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/selectIdentity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/selectIdentity$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/selectIdentity$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/selectIdentity$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/selectIdentity$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/selectIdentity$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/selectIdentity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/main/selectIdentity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/adminUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/testmain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/mainUI/Admin/testmain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$MyRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example$MyRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/Example.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/JTableTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/JTableTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/JTableTest$MyTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/JTableTest$MyTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/JTableTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/JTableTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/rightSplitPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/rightSplitPane$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/rightSplitPane$MyTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/rightSplitPane$MyTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/rightSplitPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/rightSplitPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/test1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/test1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/test2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/guiMain/test/test2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/menu/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/menu/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/DriverService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/DriverService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/PoliceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/PoliceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/DriverServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/service/impl/DriverServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/util/DateTimeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/util/DateTimeUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/util/MD5Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/util/MD5Util.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TrafficTicket/util/UUIDUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TrafficTicket/util/UUIDUtil.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,9 +178,7 @@
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
   <component name="ProjectId" id="1rLQkGqMrUBPLCNfyJWhwdFZWDj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -91,15 +199,6 @@
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.TrafficTicket.service.impl" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\idea\Traffic_ticket\target\classes" />
-      <recent name="E:\idea\Traffic_ticket\src\main\java\com\TrafficTicket" />
-      <recent name="E:\idea\Traffic_ticket\src\main\java\com\TrafficTicket\util" />
-      <recent name="E:\idea\Traffic_ticket\src\main\resources" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\idea\Traffic_ticket\src\main\java\com\TrafficTicket" />
       <recent name="E:\idea\Traffic_ticket\src\main\java" />
@@ -108,6 +207,15 @@
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.TrafficTicket" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\idea\Traffic_ticket\target\classes" />
+      <recent name="E:\idea\Traffic_ticket\src\main\java\com\TrafficTicket" />
+      <recent name="E:\idea\Traffic_ticket\src\main\java\com\TrafficTicket\util" />
+      <recent name="E:\idea\Traffic_ticket\src\main\resources" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.TrafficTicket.service.impl" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.AppTest.DriverRegisterTest">
@@ -163,19 +271,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AppTest.DriverRegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Traffic_ticket" />
       <extension name="coverage">
@@ -202,7 +297,10 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d03970ba-f1b2-4ff0-9fd5-60e6c60ed558" name="Default Changelist" comment="" />

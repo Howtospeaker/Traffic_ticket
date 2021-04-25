@@ -8,6 +8,7 @@ import com.TrafficTicket.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.*;
 import java.util.List;
 
 @Service
@@ -44,9 +45,11 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public boolean register(Driver driver) {
         if (adminDao.findDriverId(driver.getDriverId())==0){
+
             return driverDao.register(driver);
         } else {
             System.out.println("此驾驶员已存在");
+            JOptionPane.showMessageDialog(null, "账号重复或身份证号重复，请重新注册", "注册失败",JOptionPane.WARNING_MESSAGE);
         }
         return false;
     }

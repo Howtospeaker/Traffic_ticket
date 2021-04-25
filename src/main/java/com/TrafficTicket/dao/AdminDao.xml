@@ -24,10 +24,10 @@
     </select>
     <!--对交警信息表的操作-->
     <insert id="addPolice">
-        insert into policeInfo(policeId,name,policeStation,loginAct,loginPwd) values (#{policeId},#{name},#{policeStation},#{loginAct},#{loginPwd})
+        insert into policeInfo(policeId,name,policeStation,loginAct,loginPwd,sex,age) values (#{policeId},#{name},#{policeStation},#{loginAct},#{loginPwd},#{sex},#{age})
     </insert>
     <update id="updatePolice">
-        update policeInfo set policeId=#{policeId},name=#{name},policeStation=#{policeStation},loginAct=#{loginAct},loginPwd=#{loginPwd} where policeId=#{policeId}
+        update policeInfo set policeId=#{policeId},name=#{name},policeStation=#{policeStation},loginAct=#{loginAct},loginPwd=#{loginPwd},sex=#{sex},age=#{age} where policeId=#{policeId}
     </update>
     <delete id="deletePolice">
         delete from policeInfo where policeId=#{policeId}

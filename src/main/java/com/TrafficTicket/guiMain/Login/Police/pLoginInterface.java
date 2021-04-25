@@ -80,7 +80,7 @@ public class pLoginInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 jf.dispose();
-                new dRegistrationInterface().init();
+                new pRegistrationInterface().init();
             }
         });
 

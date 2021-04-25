@@ -1,5 +1,7 @@
 package com.TrafficTicket.guiMain.Login.Police;
 
+import com.TrafficTicket.controller.PoliceController;
+import com.TrafficTicket.entity.Police;
 import com.TrafficTicket.guiMain.Login.Driver.dLoginInterface;
 
 import javax.swing.*;
@@ -10,7 +12,7 @@ import java.awt.event.ActionListener;
 public class pRegistrationInterface {
     public void init() {
         JFrame jf2 = new JFrame("账号注册");
-        jf2.setBounds(450, 200, 350, 550);
+        jf2.setBounds(600, 200, 350, 450);
         jf2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Container c = jf2.getContentPane();
         c.setLayout(new BorderLayout());
@@ -18,54 +20,63 @@ public class pRegistrationInterface {
         JPanel titlePanel = new JPanel();
         titlePanel.setLayout(new FlowLayout());
         titlePanel.add(new JLabel("账号注册"));
-        c.add(titlePanel,"North");
+        c.add(titlePanel, "North");
         //输入信息部分
         JPanel filedPanel = new JPanel();
         filedPanel.setLayout(null);
-        JLabel label1 = new JLabel("账号");
-        JLabel label2 = new JLabel("姓名");
-        JLabel label3 = new JLabel("性别");
-        JLabel label4 = new JLabel("密码");
-        JLabel label5 = new JLabel("再次输入密码");
-        JLabel label6 = new JLabel("身份证号");
-        JLabel label7 = new JLabel("年龄");
-        label1.setBounds(30,20,50,20);
-        label2.setBounds(30,60,50,20);
-        label3.setBounds(30,100,50,20);
-        label4.setBounds(30,140,50,20);
-        label5.setBounds(30,180,80,20);
-        label6.setBounds(30,220,80,20);
-        label7.setBounds(30,260,80,20);
-        filedPanel.add(label1);
-        filedPanel.add(label2);
-        filedPanel.add(label6);
-        filedPanel.add(label3);
-        filedPanel.add(label7);
-        filedPanel.add(label4);
-        filedPanel.add(label5);
+        JLabel jUsename = new JLabel("账号");
+        JLabel jName = new JLabel("姓名");
+        JLabel jSex = new JLabel("性别");
+        JLabel jIdNum = new JLabel("警察编号");
+        JLabel jAge = new JLabel("年龄");
+        JLabel jpoliceStation = new JLabel("所在分局");
+        JLabel jPassword = new JLabel("密码");
+        JLabel jPasswordAgain = new JLabel("再次输入密码");
+        jUsename.setBounds(30, 20, 50, 20);
+        jName.setBounds(30, 60, 50, 20);
+        jSex.setBounds(30, 100, 50, 20);
+        jIdNum.setBounds(30, 140, 50, 20);
+        jAge.setBounds(30, 180, 80, 20);
+        jpoliceStation.setBounds(30, 220, 80, 20);
+        jPassword.setBounds(30, 260, 80, 20);
+        jPasswordAgain.setBounds(30, 300, 80, 20);
+        filedPanel.add(jUsename);
+        filedPanel.add(jName);
+        filedPanel.add(jSex);
+        filedPanel.add(jIdNum);
+        filedPanel.add(jAge);
+        filedPanel.add(jpoliceStation);
+        filedPanel.add(jPassword);
+        filedPanel.add(jPasswordAgain);
+
 
         JTextField usename = new JTextField();
         JTextField name = new JTextField();
         JTextField sex = new JTextField();
-        JTextField password = new JTextField();
-        JTextField passwordAgain = new JTextField();
         JTextField idNum = new JTextField();
         JTextField age = new JTextField();
-        usename.setBounds(110,20,140,20);
-        sex.setBounds(110,60,140,20);
-        name.setBounds(110,100,140,20);
-        password.setBounds(110,140,140,20);
-        passwordAgain.setBounds(110,180,140,20);
-        idNum.setBounds(110,220,140,20);
-        age.setBounds(110,260,140,20);
+        JTextField policeStation = new JTextField();
+        JTextField password = new JTextField();
+        JTextField passwordAgain = new JTextField();
+
+
+        usename.setBounds(110, 20, 140, 20);
+        name.setBounds(110, 60, 140, 20);
+        sex.setBounds(110, 100, 140, 20);
+        idNum.setBounds(110, 140, 140, 20);
+        age.setBounds(110, 180, 140, 20);
+        policeStation.setBounds(110, 220, 140, 20);
+        password.setBounds(110, 260, 140, 20);
+        passwordAgain.setBounds(110, 300, 140, 20);
         filedPanel.add(usename);
         filedPanel.add(name);
-        filedPanel.add(idNum);
         filedPanel.add(sex);
+        filedPanel.add(idNum);
         filedPanel.add(age);
+        filedPanel.add(policeStation);
         filedPanel.add(password);
         filedPanel.add(passwordAgain);
-        c.add(filedPanel,"Center");
+        c.add(filedPanel, "Center");
         //按钮设置
         JPanel buttonPanel = new JPanel();
 
@@ -74,11 +85,21 @@ public class pRegistrationInterface {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(true){
-//                    jf2.dispose();
-                    JOptionPane.showMessageDialog(null, "账号重复或身份证号重复，请重新注册", "注册失败",JOptionPane.WARNING_MESSAGE);
-                } else {
-                    //JOptionPane.showMessageDialog(null, "账号重复或身份证号重复，请重新注册", "注册失败",JOptionPane.WARNING_MESSAGE);
+
+                PoliceController policeController = new PoliceController();
+
+                String usenameText = usename.getText().trim();
+                String nameText = name.getText().trim();
+                String sexText = sex.getText().trim();
+                String idNumText = idNum.getText().trim();
+                String ageText = age.getText().trim();
+                String passwordText = password.getText().trim();
+                String policeStationText = policeStation.getText().trim();
+
+                Police police = new Police(idNumText, nameText, policeStationText, usenameText, passwordText, sexText, Integer.valueOf(ageText));
+                if (policeController.register(police)) {
+                    new dLoginInterface().init();
+                    jf2.dispose();
                 }
             }
         });
@@ -93,7 +114,7 @@ public class pRegistrationInterface {
             }
         });
 
-        c.add(buttonPanel,"South");
+        c.add(buttonPanel, "South");
         jf2.setResizable(false);
         jf2.setVisible(true);
     }

@@ -3,7 +3,7 @@ package com.TrafficTicket.guiMain.Login.Admin;
 import com.TrafficTicket.controller.AdminController;
 import com.TrafficTicket.controller.PoliceController;
 import com.TrafficTicket.guiMain.main.selectIdentity;
-import com.TrafficTicket.guiMain.test.Example;
+import com.TrafficTicket.guiMain.mainUI.Admin.adminUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,8 +62,8 @@ public class aLoginInterface {
                 String passwordText = String.copyValueOf(password.getPassword());
                 AdminController adminController = new AdminController();
                 if(adminController.login(userNameText,passwordText)) {
-                    new Example().init();
                     //接入主界面
+                    new adminUI().init();
                     jf.dispose();
                 }
             }

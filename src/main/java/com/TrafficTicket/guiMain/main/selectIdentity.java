@@ -16,8 +16,8 @@ public class selectIdentity {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         //标题
-        JLabel jLabel = new JLabel("罚单查询系统",JLabel.CENTER);
-        jLabel.setFont(new Font("楷体",1,16));
+        JLabel jLabel = new JLabel("交通罚单查询系统",JLabel.CENTER);
+        jLabel.setFont(new Font("楷体",1,20));
         jf.add(jLabel);
 
         jf.setLayout(new GridLayout(4,1));
