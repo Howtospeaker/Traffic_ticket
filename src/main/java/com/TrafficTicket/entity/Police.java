@@ -11,4 +11,6 @@ public class Police {
     private String policeStation;
     private String loginAct;
     private String loginPwd;
+    private String sex;
+    private Integer age;
 }

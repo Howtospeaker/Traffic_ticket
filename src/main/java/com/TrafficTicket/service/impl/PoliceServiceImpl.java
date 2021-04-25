@@ -18,7 +18,23 @@ public class PoliceServiceImpl implements PoliceService {
     private AdminDao adminDao;
     @Override
     public int addTicket(Ticket ticket) {
-        return policeDao.addTicket(ticket);
+        if (policeDao.findTicket(ticket.getTicketId())==1){
+            if (adminDao.findCarId(ticket.getCarId())==1){
+                if (adminDao.findDriverId(ticket.getDriverId())==1){
+                    return policeDao.addTicket(ticket);
+                }else {
+                    System.out.println("不存在此驾驶员");
+
+                }
+            } else {
+                System.out.println("不存在此车牌号");
+
+            }
+        } else {
+            System.out.println("不存在此罚单");
+
+        }
+        return 0;
     }
 
     @Override

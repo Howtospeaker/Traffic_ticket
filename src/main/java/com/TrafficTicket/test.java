@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class test {
-    //管理员菜单界面
+/*    //管理员菜单界面
     public static void AdminControllerTest() {
         AdminController adminController = new AdminController();
         int flag = 0;
@@ -246,5 +246,5 @@ public class test {
                 }
             }
         }
-    }
+    }*/
 }

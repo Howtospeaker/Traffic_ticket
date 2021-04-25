@@ -22,12 +22,15 @@ public class DriverController {
         return driverService.selectTicketView();
     }
     //罚单缴费（修改缴费状态）
-    public String updateTicketFine(Integer driverId){
+    public boolean updateTicketFine(Integer driverId){
         
         if (driverService.updateTicketFine(driverId)==1){
-            return "缴费成功";
+            System.out.println("缴费成功");
+            return true;
+        } else {
+            System.out.println("缴费失败");
         }
-        return "缴费失败";
+        return false;
     }
 
     //驾驶员登录
