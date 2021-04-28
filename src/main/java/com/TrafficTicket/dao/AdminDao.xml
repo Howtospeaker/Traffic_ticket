@@ -16,8 +16,8 @@
     <select id="selectAllCarInfo" resultType="Car">
         select * from carInfo
     </select>
-    <select id="findDriverId" resultType="int">
-        select count(driverId) from driver where driverId = #{driverId}
+    <select id="findDriverId" resultType="Driver">
+        select * from driver where driverId = #{driverId}
     </select>
     <select id="findCarId" resultType="int">
         select count(carId) from carInfo where carId = #{carId}
@@ -27,7 +27,7 @@
         insert into policeInfo(policeId,name,policeStation,loginAct,loginPwd,sex,age) values (#{policeId},#{name},#{policeStation},#{loginAct},#{loginPwd},#{sex},#{age})
     </insert>
     <update id="updatePolice">
-        update policeInfo set policeId=#{policeId},name=#{name},policeStation=#{policeStation},loginAct=#{loginAct},loginPwd=#{loginPwd},sex=#{sex},age=#{age} where policeId=#{policeId}
+        update policeInfo set policeId=#{policeId},name=#{name},sex=#{sex},age=#{age},policeStation=#{policeStation},loginAct=#{loginAct},loginPwd=#{loginPwd} where policeId=#{policeId}
     </update>
     <delete id="deletePolice">
         delete from policeInfo where policeId=#{policeId}
@@ -44,10 +44,26 @@
         SELECT * FROM adminticketview
     </select>
 
+    <update id="updateDriver">
+        update driver set name=#{name},sex=#{sex},age=#{age},driverNum=#{driverNum},loginPwd=#{loginPwd} where driverId=#{driverId}
+    </update>
+    <select id="findPoliceById" resultType="Police">
+        select * from policeInfo by policeId=#{policeId}
+    </select>
+    <select id="findCarInfo" resultType="Car">
+        select * from carInfo where driverId=#{driverId}
+    </select>
+
     <select id="findAdminIp" resultType="int">
         select count(*) from admin where allowsIp=#{allowsIp}
     </select>
     <select id="login" resultType="int">
         select count(*) from admin where loginAct=#{loginAct} and loginPwd=#{loginPwd}
     </select>
+    <select id="selectAllDriver" resultType="Driver">
+        select * from driver
+    </select>
+    <delete id="deleteDriver">
+        delete from driver where driverId=#{driverId}
+    </delete>
 </mapper>

@@ -1,11 +1,10 @@
 package com.TrafficTicket.guiMain.Login.Police;
 
 import com.TrafficTicket.controller.PoliceController;
-import com.TrafficTicket.entity.Ticket;
-import com.TrafficTicket.guiMain.Login.Driver.dRegistrationInterface;
+import com.TrafficTicket.guiMain.mainUI.Police.*;
+
 import com.TrafficTicket.guiMain.main.selectIdentity;
-import com.TrafficTicket.guiMain.test.Example;
-import com.TrafficTicket.util.UUIDUtil;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -67,8 +66,12 @@ public class pLoginInterface {
                 String passwordText = String.copyValueOf(password.getPassword());
                 PoliceController policeController = new PoliceController();
                 if(policeController.login(userNameText,passwordText)) {
-                    new Example().init();
                     //接入主界面
+                    try {
+                        new policeUI().init();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     jf.dispose();
                 }
             }

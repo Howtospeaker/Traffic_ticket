@@ -29,7 +29,7 @@ public class pRegistrationInterface {
         JLabel jSex = new JLabel("性别");
         JLabel jIdNum = new JLabel("警察编号");
         JLabel jAge = new JLabel("年龄");
-        JLabel jpoliceStation = new JLabel("所在分局");
+        JLabel jpoliceStation = new JLabel("所属分局");
         JLabel jPassword = new JLabel("密码");
         JLabel jPasswordAgain = new JLabel("再次输入密码");
         jUsename.setBounds(30, 20, 50, 20);
@@ -52,17 +52,25 @@ public class pRegistrationInterface {
 
         JTextField usename = new JTextField();
         JTextField name = new JTextField();
-        JTextField sex = new JTextField();
+//        JTextField sex = new JTextField();
+
+        JRadioButton male = new JRadioButton("男", true);
+        JRadioButton female = new JRadioButton("女", false);
+        //实现单选效果
+        ButtonGroup sex = new ButtonGroup();
+        sex.add(male);
+        sex.add(female);
+
         JTextField idNum = new JTextField();
         JTextField age = new JTextField();
         JTextField policeStation = new JTextField();
         JTextField password = new JTextField();
         JTextField passwordAgain = new JTextField();
 
-
         usename.setBounds(110, 20, 140, 20);
         name.setBounds(110, 60, 140, 20);
-        sex.setBounds(110, 100, 140, 20);
+        male.setBounds(110, 100, 50, 20);
+        female.setBounds(165, 100, 140, 20);
         idNum.setBounds(110, 140, 140, 20);
         age.setBounds(110, 180, 140, 20);
         policeStation.setBounds(110, 220, 140, 20);
@@ -70,7 +78,8 @@ public class pRegistrationInterface {
         passwordAgain.setBounds(110, 300, 140, 20);
         filedPanel.add(usename);
         filedPanel.add(name);
-        filedPanel.add(sex);
+        filedPanel.add(male);
+        filedPanel.add(female);
         filedPanel.add(idNum);
         filedPanel.add(age);
         filedPanel.add(policeStation);
@@ -90,13 +99,13 @@ public class pRegistrationInterface {
 
                 String usenameText = usename.getText().trim();
                 String nameText = name.getText().trim();
-                String sexText = sex.getText().trim();
+                String sexText = sex.isSelected(male.getModel()) ? male.getText() : female.getText();
                 String idNumText = idNum.getText().trim();
                 String ageText = age.getText().trim();
                 String passwordText = password.getText().trim();
                 String policeStationText = policeStation.getText().trim();
 
-                Police police = new Police(idNumText, nameText, policeStationText, usenameText, passwordText, sexText, Integer.valueOf(ageText));
+                Police police = new Police(idNumText, nameText, sexText, Integer.valueOf(ageText), policeStationText, usenameText, passwordText);
                 if (policeController.register(police)) {
                     new dLoginInterface().init();
                     jf2.dispose();

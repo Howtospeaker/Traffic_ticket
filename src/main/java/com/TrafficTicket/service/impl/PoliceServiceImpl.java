@@ -22,7 +22,7 @@ public class PoliceServiceImpl implements PoliceService {
     public int addTicket(Ticket ticket) {
         if (policeDao.findTicket(ticket.getTicketId())==1){
             if (adminDao.findCarId(ticket.getCarId())==1){
-                if (adminDao.findDriverId(ticket.getDriverId())==1){
+                if (adminDao.findDriverId(ticket.getDriverId())!= null){
                     return policeDao.addTicket(ticket);
                 }else {
                     System.out.println("不存在此驾驶员");
@@ -43,7 +43,7 @@ public class PoliceServiceImpl implements PoliceService {
     public int updateTicket(Ticket ticket) {
         if (policeDao.findTicket(ticket.getTicketId()) == 1) {
             if (adminDao.findCarId(ticket.getCarId()) == 1) {
-                if (adminDao.findDriverId(ticket.getDriverId()) == 1) {
+                if (adminDao.findDriverId(ticket.getDriverId()) != null) {
                     return policeDao.updateTicket(ticket);
                 } else {
                     System.out.println("不存在此驾驶员");

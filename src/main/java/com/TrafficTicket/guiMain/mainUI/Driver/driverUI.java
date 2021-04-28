@@ -1,7 +1,8 @@
 package com.TrafficTicket.guiMain.mainUI.Driver;
 
 import com.TrafficTicket.guiMain.main.selectIdentity;
-import com.TrafficTicket.guiMain.mainUI.Admin.adminPoliceRightSplitPane;
+import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminDriverRightSplitPane;
+import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminPoliceRightSplitPane;
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
@@ -15,7 +16,7 @@ import java.awt.event.ActionListener;
 public class driverUI {
 
     //组装视图
-    public void init(){
+    public void init() throws Exception {
         JFrame jf = new JFrame("驾驶员操作界面");
         jf.setSize(1000,600);
         jf.setLocationRelativeTo(null);
@@ -29,14 +30,28 @@ public class driverUI {
         m1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new selectIdentity().init();
-                jf.dispose();
+                int result = JOptionPane.showConfirmDialog(jf, "是否切换账号", "切换账号", JOptionPane.OK_CANCEL_OPTION);
+
+                if (result == JOptionPane.OK_OPTION) {
+                    jf.dispose();
+                    new selectIdentity().init();
+                }
+                if (result == JOptionPane.CANCEL_OPTION) {
+
+                }
             }
         });
         m2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                System.exit(0);
+                int result = JOptionPane.showConfirmDialog(jf, "是否退出系统", "退出系统", JOptionPane.OK_CANCEL_OPTION);
+
+                if (result == JOptionPane.OK_OPTION) {
+                    System.exit(0);
+                }
+                if (result == JOptionPane.CANCEL_OPTION) {
+
+                }
             }
         });
 
@@ -89,7 +104,7 @@ public class driverUI {
                     sp.setRightComponent(new driverRightSplitPane());
                     sp.setDividerLocation(200);
                 }else if (driverManage.equals(lastPathComponent)){
-                    sp.setRightComponent(new ticketRightSplitPane());
+                    sp.setRightComponent(new driverTicketRightSplitPane());
                     sp.setDividerLocation(200);
                 }
             }
@@ -114,12 +129,26 @@ public class driverUI {
                 //得到当前选中的结点对象
                 Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
 
-                if(switchAccounts.equals(lastPathComponent)){
+                if (switchAccounts.equals(lastPathComponent)) {
 
-                    jf.dispose();
-                    new selectIdentity().init();
-                }else if (exit.equals(lastPathComponent)){
-                    System.exit(0);
+                    int result = JOptionPane.showConfirmDialog(jf, "是否切换账号", "切换账号", JOptionPane.OK_CANCEL_OPTION);
+                    if (result == JOptionPane.OK_OPTION) {
+                        jf.dispose();
+                        new selectIdentity().init();
+                    }
+                    if (result == JOptionPane.CANCEL_OPTION) {
+
+                    }
+
+                } else if (exit.equals(lastPathComponent)) {
+                    int result = JOptionPane.showConfirmDialog(jf, "是否退出系统", "退出系统", JOptionPane.OK_CANCEL_OPTION);
+
+                    if (result == JOptionPane.OK_OPTION) {
+                        System.exit(0);
+                    }
+                    if (result == JOptionPane.CANCEL_OPTION) {
+
+                    }
                 }
 
             }
@@ -128,7 +157,7 @@ public class driverUI {
         upPanel.add(tree2);
 
         //默认打开界面为警察管理
-        sp.setRightComponent(new adminPoliceRightSplitPane());
+        sp.setRightComponent(new adminDriverRightSplitPane());
         jf.add(sp);
         jf.setVisible(true);
     }

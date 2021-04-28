@@ -2,10 +2,9 @@ package com.TrafficTicket.service;
 
 import com.TrafficTicket.entity.AdminTicketView;
 import com.TrafficTicket.entity.Car;
+import com.TrafficTicket.entity.Driver;
 import com.TrafficTicket.entity.Police;
-import org.springframework.stereotype.Service;
 
-import java.net.InetAddress;
 import java.util.List;
 
 public interface AdminService {
@@ -15,7 +14,7 @@ public interface AdminService {
 
     int deleteCarInfo(String carId);
 
-    List<Car> selectAllCarInfo();
+    List<Object> selectAllCarInfo();
 
     int addPolice(Police police);
 
@@ -23,9 +22,19 @@ public interface AdminService {
 
     int deletePolice(String policeId);
 
-    List<Police> selectAllPolice();
+    List<Object> selectAllPolice();
 
     List<AdminTicketView> selectTicketView();
 
     int login(String loginAct, String loginPwd, String ip);
+
+    int updateDriverInfo(Driver driver);
+
+    Police findPoliceById(String inquireText);
+
+    List<Object> selectAllDriver();
+
+    int deleteDriver(Integer id);
+
+    Driver findDriverById(Integer driverId);
 }

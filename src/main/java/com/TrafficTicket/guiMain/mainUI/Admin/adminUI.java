@@ -1,7 +1,11 @@
 package com.TrafficTicket.guiMain.mainUI.Admin;
 
 import com.TrafficTicket.guiMain.main.selectIdentity;
-import com.TrafficTicket.guiMain.test.rightSplitPane;
+import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminCarRightSplitPane;
+import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminDriverRightSplitPane;
+import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminPoliceRightSplitPane;
+import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminTicketRightSplitPane;
+
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
@@ -15,9 +19,9 @@ import java.awt.event.ActionListener;
 public class adminUI {
 
     //组装视图
-    public void init(){
+    public void init() throws Exception {
         JFrame jf = new JFrame("管理员操作界面");
-        jf.setSize(1000,600);
+        jf.setSize(1000, 600);
         jf.setLocationRelativeTo(null);
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -29,14 +33,28 @@ public class adminUI {
         m1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new selectIdentity().init();
-                jf.dispose();
+                int result = JOptionPane.showConfirmDialog(jf, "是否切换账号", "切换账号", JOptionPane.OK_CANCEL_OPTION);
+
+                if (result == JOptionPane.OK_OPTION) {
+                    jf.dispose();
+                    new selectIdentity().init();
+                }
+                if (result == JOptionPane.CANCEL_OPTION) {
+
+                }
             }
         });
         m2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                System.exit(0);
+                int result = JOptionPane.showConfirmDialog(jf, "是否退出系统", "退出系统", JOptionPane.OK_CANCEL_OPTION);
+
+                if (result == JOptionPane.OK_OPTION) {
+                    System.exit(0);
+                }
+                if (result == JOptionPane.CANCEL_OPTION) {
+
+                }
             }
         });
 
@@ -54,9 +72,9 @@ public class adminUI {
         //分隔板左侧
         JPanel upPanel = new JPanel();
         JPanel downPanel = new JPanel();
-        upPanel.setLayout(new GridLayout(2,1));
+        upPanel.setLayout(new GridLayout(2, 1));
 
-        JSplitPane spLeft = new JSplitPane(JSplitPane.VERTICAL_SPLIT,upPanel,downPanel);
+        JSplitPane spLeft = new JSplitPane(JSplitPane.VERTICAL_SPLIT, upPanel, downPanel);
         spLeft.setDividerLocation(300);
         spLeft.setDividerSize(7);
         sp.setLeftComponent(spLeft);
@@ -65,18 +83,20 @@ public class adminUI {
         MyRenderer myRenderer = new MyRenderer();
         Color color = new Color(0xC7D0D3);
         myRenderer.setBackgroundNonSelectionColor(color);
-        myRenderer.setBackgroundSelectionColor(new Color(140,140,140));
+        myRenderer.setBackgroundSelectionColor(new Color(140, 140, 140));
 
         //信息管理树定义
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("信息管理");
         DefaultMutableTreeNode policeManage = new DefaultMutableTreeNode("交警信息");
         DefaultMutableTreeNode driverManage = new DefaultMutableTreeNode("驾驶员信息");
         DefaultMutableTreeNode ticketManage = new DefaultMutableTreeNode("罚单信息");
+        DefaultMutableTreeNode carManage = new DefaultMutableTreeNode("车辆信息");
 
 
         root.add(policeManage);
         root.add(driverManage);
         root.add(ticketManage);
+        root.add(carManage);
         JTree tree = new JTree(root);
         tree.setCellRenderer(myRenderer);
         tree.setBackground(color);
@@ -89,17 +109,33 @@ public class adminUI {
                 //得到当前选中的结点对象
                 Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
 
-                if(policeManage.equals(lastPathComponent)){
-                    sp.setRightComponent(new rightSplitPane());
+                if (policeManage.equals(lastPathComponent)) {
+                    try {
+                        sp.setRightComponent(new adminPoliceRightSplitPane());
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
                     sp.setDividerLocation(200);
-                }else if (driverManage.equals(lastPathComponent)){
-                    sp.setRightComponent(new JLabel("testdriver"));
-                    sp.setDividerLocation(200);
-                }if(ticketManage.equals(lastPathComponent)) {
-                    sp.setRightComponent(new JLabel("guiMain/test") );
+                } else if (driverManage.equals(lastPathComponent)) {
+                    try {
+                        sp.setRightComponent(new adminDriverRightSplitPane());
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
                     sp.setDividerLocation(200);
                 }
-
+                if (ticketManage.equals(lastPathComponent)) {
+                    sp.setRightComponent(new adminTicketRightSplitPane());
+                    sp.setDividerLocation(200);
+                }
+                if (carManage.equals(lastPathComponent)) {
+                    try {
+                        sp.setRightComponent(new adminCarRightSplitPane());
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                    sp.setDividerLocation(200);
+                }
             }
         });
 
@@ -123,13 +159,27 @@ public class adminUI {
                 //得到当前选中的结点对象
                 Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
 
-                if(switchAccounts.equals(lastPathComponent)){
-                    jf.dispose();
-                    new selectIdentity().init();
-                }else if (exit.equals(lastPathComponent)){
-                    System.exit(0);
-                }
+                if (switchAccounts.equals(lastPathComponent)) {
 
+                    int result = JOptionPane.showConfirmDialog(jf, "是否切换账号", "切换账号", JOptionPane.OK_CANCEL_OPTION);
+                    if (result == JOptionPane.OK_OPTION) {
+                        jf.dispose();
+                        new selectIdentity().init();
+                    }
+                    if (result == JOptionPane.CANCEL_OPTION) {
+
+                    }
+
+                } else if (exit.equals(lastPathComponent)) {
+                    int result = JOptionPane.showConfirmDialog(jf, "是否退出系统", "退出系统", JOptionPane.OK_CANCEL_OPTION);
+
+                    if (result == JOptionPane.OK_OPTION) {
+                        System.exit(0);
+                    }
+                    if (result == JOptionPane.CANCEL_OPTION) {
+
+                    }
+                }
             }
         });
 
@@ -142,7 +192,7 @@ public class adminUI {
     }
 
     //结点绘制器
-    private class MyRenderer extends DefaultTreeCellRenderer{
+    private class MyRenderer extends DefaultTreeCellRenderer {
 
         //当绘制树的每个结点时，都会调用
         @Override

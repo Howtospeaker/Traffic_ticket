@@ -3,6 +3,7 @@ package com.TrafficTicket.service.impl;
 import com.TrafficTicket.dao.AdminDao;
 import com.TrafficTicket.entity.AdminTicketView;
 import com.TrafficTicket.entity.Car;
+import com.TrafficTicket.entity.Driver;
 import com.TrafficTicket.entity.Police;
 import com.TrafficTicket.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public int addCarInfo(Car car) {
         //先判断是否存在此驾驶员
-        if (adminDao.findDriverId(car.getDriverId())==1){
+        if (adminDao.findDriverId(car.getDriverId())!= null){
             //判断此车牌号是否已经存在
             if (adminDao.findCarId(car.getCarId())==0){
                 return adminDao.addCarInfo(car);
@@ -36,7 +37,7 @@ public class AdminServiceImpl implements AdminService {
         //先查找是否存在此车牌号
         if (adminDao.findCarId(car.getCarId()) == 1){
             //先判断需要换的新车主是否存在
-            if (adminDao.findDriverId(car.getDriverId()) == 1){
+            if (adminDao.findDriverId(car.getDriverId()) != null){
                 return adminDao.updateCarInfo(car);
             } else{
                 System.out.println("找不到"+car.getDriverId()+"编号的车主");
@@ -58,7 +59,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Car> selectAllCarInfo() {
+    public List<Object> selectAllCarInfo() {
         return adminDao.selectAllCarInfo();
     }
 
@@ -96,7 +97,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Police> selectAllPolice() {
+    public List<Object> selectAllPolice() {
         return adminDao.selectAllPolice();
     }
 
@@ -119,5 +120,38 @@ public class AdminServiceImpl implements AdminService {
             System.out.println("请在允许的ip地址下登录！");
         }
         return 0;
+    }
+
+    @Override
+    public int updateDriverInfo(Driver driver) {
+        if (adminDao.findDriverId(driver.getDriverId())!= null){
+            if (adminDao.updateDriver(driver)==1){
+                System.out.println("更新成功");
+                return 1;
+            }
+        } else {
+            System.out.println("此驾驶员的身份证号不存在");
+        }
+        return 0;
+    }
+
+    @Override
+    public Police findPoliceById(String inquireText) {
+        return adminDao.findPoliceById(inquireText);
+    }
+
+    @Override
+    public List<Object> selectAllDriver() {
+        return adminDao.selectAllDriver();
+    }
+
+    @Override
+    public int deleteDriver(Integer id) {
+        return adminDao.deleteDriver(id);
+    }
+
+    @Override
+    public Driver findDriverById(Integer driverId) {
+        return adminDao.findDriverId(driverId);
     }
 }

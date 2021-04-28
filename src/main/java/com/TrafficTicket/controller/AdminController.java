@@ -2,6 +2,7 @@ package com.TrafficTicket.controller;
 
 import com.TrafficTicket.entity.AdminTicketView;
 import com.TrafficTicket.entity.Car;
+import com.TrafficTicket.entity.Driver;
 import com.TrafficTicket.entity.Police;
 import com.TrafficTicket.service.AdminService;
 import com.TrafficTicket.util.MD5Util;
@@ -10,7 +11,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
-import java.util.Locale;
 
 public class AdminController {
 /*
@@ -26,15 +26,16 @@ public class AdminController {
     //车辆录入
     public boolean addCarInfo(Car car){
         car.setCarId(car.getCarId().toUpperCase());
-        if (!(car.getCarId().contains("I")&&car.getCarId().contains("O"))) {
-            System.out.println("车牌号中不能出现I 和 O 的字符");
-        } else {
+        System.out.println(car.getCarId());
+        if (!(car.getCarId().contains("I")||car.getCarId().contains("O"))) {
             if (adminService.addCarInfo(car) == 1) {
                 System.out.println("录入成功");
                 return true;
             } else {
                 System.out.println("录入车辆信息失败");
             }
+        } else {
+            System.out.println("车牌号中不能出现I 和 O 的字符");
         }
         return false;
     }
@@ -58,7 +59,7 @@ public class AdminController {
         return false;
     }
     //车辆查询
-    public List<Car> selectAllCarInfo(){
+    public List<Object> selectAllCarInfo(){
 
         return adminService.selectAllCarInfo();
     }
@@ -95,7 +96,7 @@ public class AdminController {
         return false;
     }
     //交警查询
-    public List<Police> selectAllPolice(){
+    public List<Object> selectAllPolice(){
         return adminService.selectAllPolice();
     }
 
@@ -119,5 +120,36 @@ public class AdminController {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public boolean updateDriver(Driver driver) {
+        if (adminService.updateDriverInfo(driver)==1){
+            return true;
+        } else {
+            System.out.println("更新失败");
+        }
+        return false;
+    }
+
+    public Police findPoliceById(String inquireText) {
+        return adminService.findPoliceById(inquireText);
+    }
+
+    public List<Object> selectAllDriver(){
+        return adminService.selectAllDriver();
+    }
+
+    public boolean deleteDriver(Integer id) {
+        if (adminService.deleteDriver(id)==1){
+            System.out.println("删除成功");
+            return true;
+        } else {
+            System.out.println("删除失败");
+        }
+        return false;
+    }
+
+    public Driver findDriverById(Integer driverId) {
+        return adminService.findDriverById(driverId);
     }
 }

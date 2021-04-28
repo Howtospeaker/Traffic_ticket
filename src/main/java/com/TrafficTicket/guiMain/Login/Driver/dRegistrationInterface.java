@@ -7,8 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 public class dRegistrationInterface {
     public void init() {
@@ -56,15 +54,12 @@ public class dRegistrationInterface {
 
         JRadioButton male = new JRadioButton("男", true);
         JRadioButton female = new JRadioButton("女", false);
-        male.setBounds(110, 100, 140, 20);
-        male.setBounds(140, 100, 140, 20);
-
+        male.setBounds(110, 100, 50, 20);
+        female.setBounds(160, 100, 140, 20);
         //实现单选效果
-        ButtonGroup bg = new ButtonGroup();
-        bg.add(male);
-        bg.add(female);
-        String sexText = bg.isSelected(male.getModel()) ? male.getText() : female.getText();
-
+        ButtonGroup sex = new ButtonGroup();
+        sex.add(male);
+        sex.add(female);
 
         JTextField idNum = new JTextField();
         JTextField licenseNum = new JTextField();
@@ -74,8 +69,8 @@ public class dRegistrationInterface {
 
         usename.setBounds(110, 20, 140, 20);
         name.setBounds(110, 60, 140, 20);
-        male.setBounds(110, 100, 140, 20);
-        male.setBounds(140, 100, 140, 20);
+        male.setBounds(110, 100, 50, 20);
+        female.setBounds(165, 100, 140, 20);
         idNum.setBounds(110, 140, 140, 20);
         licenseNum.setBounds(110, 180, 140, 20);
         age.setBounds(110, 220, 140, 20);
@@ -104,6 +99,7 @@ public class dRegistrationInterface {
 
                 String usenameText = usename.getText().trim();
                 String nameText = name.getText().trim();
+                String sexText = sex.isSelected(male.getModel()) ? male.getText() : female.getText();
                 String idNumText = idNum.getText().trim();
                 String licenseNumText = licenseNum.getText().trim();
                 String ageText = age.getText().trim();

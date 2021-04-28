@@ -17,6 +17,7 @@ public class DriverServiceImpl implements DriverService {
     private DriverDao driverDao;
     @Autowired
     private AdminDao adminDao;
+
     @Override
     public List<DriverTicketView> selectTicketView() {
         return driverDao.selectTicketView();
@@ -24,8 +25,8 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public int updateTicketFine(Integer driverId) {
-        if (driverDao.findTicketByDriver(driverId)==1){
-            if (driverDao.findTicketFine(driverId)==1){
+        if (driverDao.findTicketByDriver(driverId) == 1) {
+            if (driverDao.findTicketFine(driverId) == 1) {
                 System.out.println("你的罚单已缴费");
                 return 0;
             } else {
@@ -39,17 +40,17 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public int login(String loginAct, String loginPwd) {
-        return driverDao.login(loginAct,loginPwd);
+        return driverDao.login(loginAct, loginPwd);
     }
 
     @Override
     public boolean register(Driver driver) {
-        if (adminDao.findDriverId(driver.getDriverId())==0){
+        if (adminDao.findDriverId(driver.getDriverId()) != null) {
 
             return driverDao.register(driver);
         } else {
             System.out.println("此驾驶员已存在");
-            JOptionPane.showMessageDialog(null, "账号重复或身份证号重复，请重新注册", "注册失败",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "账号重复或身份证号重复，请重新注册", "注册失败", JOptionPane.WARNING_MESSAGE);
         }
         return false;
     }

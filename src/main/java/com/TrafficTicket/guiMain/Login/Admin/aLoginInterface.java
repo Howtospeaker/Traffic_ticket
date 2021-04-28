@@ -63,7 +63,11 @@ public class aLoginInterface {
                 AdminController adminController = new AdminController();
                 if(adminController.login(userNameText,passwordText)) {
                     //接入主界面
-                    new adminUI().init();
+                    try {
+                        new adminUI().init();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     jf.dispose();
                 }
             }

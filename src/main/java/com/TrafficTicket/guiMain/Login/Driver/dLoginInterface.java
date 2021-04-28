@@ -1,15 +1,14 @@
 package com.TrafficTicket.guiMain.Login.Driver;
 
 import com.TrafficTicket.controller.DriverController;
-import com.TrafficTicket.entity.DriverTicketView;
+import com.TrafficTicket.guiMain.mainUI.Driver.*;
 import com.TrafficTicket.guiMain.main.selectIdentity;
-import com.TrafficTicket.guiMain.test.Example;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
+
 
 public class dLoginInterface {
 
@@ -54,7 +53,6 @@ public class dLoginInterface {
         //按钮设置
         JPanel buttonPanel = new JPanel();
 
-
         JButton button1 = new JButton("登录");
         buttonPanel.add(button1);
         button1.addActionListener(new ActionListener() {
@@ -68,7 +66,12 @@ public class dLoginInterface {
 
                 //访问登录接口
                 if (driverController.login(userNameText, passwordText)) {
-                    new Example().init();
+                    try {
+                        new driverUI().init();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    ;
                     jf.dispose();
                 }
             }
