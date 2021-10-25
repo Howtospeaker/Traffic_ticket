@@ -24,34 +24,52 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public int updateTicketFine(Integer driverId) {
-        if (driverDao.findTicketByDriver(driverId) == 1) {
-            if (driverDao.findTicketFine(driverId) == 1) {
-                System.out.println("你的罚单已缴费");
-                return 0;
+    public int updateTicketFine(String ticketId) {
+            if (driverDao.findTicketFine(ticketId) == 1) {
+                return driverDao.updateTicketFine(ticketId);
             } else {
-                return driverDao.updateTicketFine(driverId);
+                System.out.println("你已缴费");
+                JOptionPane.showMessageDialog(null, "你已缴费", "失败", JOptionPane.WARNING_MESSAGE);
+
             }
-        } else {
-            System.out.println("你暂时还没有罚单，请继续努力");
-        }
         return 0;
     }
 
     @Override
-    public int login(String loginAct, String loginPwd) {
+    public Driver login(String loginAct, String loginPwd) {
         return driverDao.login(loginAct, loginPwd);
     }
 
     @Override
     public boolean register(Driver driver) {
-        if (adminDao.findDriverId(driver.getDriverId()) != null) {
-
-            return driverDao.register(driver);
+        if (adminDao.findDriverId(driver.getDriverId()) == null) {
+            if (adminDao.findDriverNum(driver.getDriverNum())==0) {
+                if (adminDao.findDriverLoginAct(driver.getLoginAct())==0) {
+                    JOptionPane.showMessageDialog(null, "注册成功", "注册成功", JOptionPane.WARNING_MESSAGE);
+                    System.out.println("注册成功");
+                    return driverDao.register(driver);
+                }else {
+                    JOptionPane.showMessageDialog(null, "账号已存在，请重新注册", "注册失败", JOptionPane.WARNING_MESSAGE);
+                    System.out.println("账号存在");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "驾驶证号已存在，请重新注册", "注册失败", JOptionPane.WARNING_MESSAGE);
+                System.out.println("驾驶证号存在");
+            }
         } else {
             System.out.println("此驾驶员已存在");
             JOptionPane.showMessageDialog(null, "账号重复或身份证号重复，请重新注册", "注册失败", JOptionPane.WARNING_MESSAGE);
         }
         return false;
+    }
+
+    @Override
+    public List<Object> selectOwnTicket(Integer driverId) {
+        if (driverDao.selectOwnTicket(driverId)==null){
+            System.out.println("没有信息");
+        }else {
+            return driverDao.selectOwnTicket(driverId);
+        }
+        return null;
     }
 }

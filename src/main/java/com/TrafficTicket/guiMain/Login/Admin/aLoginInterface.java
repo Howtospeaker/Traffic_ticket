@@ -1,8 +1,7 @@
 package com.TrafficTicket.guiMain.Login.Admin;
 
 import com.TrafficTicket.controller.AdminController;
-import com.TrafficTicket.controller.PoliceController;
-import com.TrafficTicket.guiMain.main.selectIdentity;
+import com.TrafficTicket.guiMain.selectIdentity.selectIdentity;
 import com.TrafficTicket.guiMain.mainUI.Admin.adminUI;
 
 import javax.swing.*;

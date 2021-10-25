@@ -1,8 +1,7 @@
 package com.TrafficTicket.guiMain.mainUI.Driver;
 
-import com.TrafficTicket.guiMain.main.selectIdentity;
-import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminDriverRightSplitPane;
-import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminPoliceRightSplitPane;
+import com.TrafficTicket.entity.Driver;
+import com.TrafficTicket.guiMain.selectIdentity.selectIdentity;
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
@@ -16,7 +15,7 @@ import java.awt.event.ActionListener;
 public class driverUI {
 
     //组装视图
-    public void init() throws Exception {
+    public void init(Driver driver,String password) throws Exception {
         JFrame jf = new JFrame("驾驶员操作界面");
         jf.setSize(1000,600);
         jf.setLocationRelativeTo(null);
@@ -63,7 +62,8 @@ public class driverUI {
         //总分割面板//支持连续布局
         JSplitPane sp = new JSplitPane();
         sp.setContinuousLayout(true);
-        sp.setDividerLocation(200);
+        sp.setDividerLocation(180);
+        sp.setEnabled(false);
         sp.setDividerSize(7);
 
         //分隔板左侧
@@ -72,8 +72,9 @@ public class driverUI {
         upPanel.setLayout(new GridLayout(2,1));
 
         JSplitPane spLeft = new JSplitPane(JSplitPane.VERTICAL_SPLIT,upPanel,downPanel);
-        spLeft.setDividerLocation(300);
+        spLeft.setDividerLocation(230);
         spLeft.setDividerSize(7);
+        spLeft.setEnabled(false);
         sp.setLeftComponent(spLeft);
 
         //树结点设置
@@ -84,11 +85,13 @@ public class driverUI {
 
         //信息管理树定义
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("信息管理");
-        DefaultMutableTreeNode policeManage = new DefaultMutableTreeNode("个人信息");
-        DefaultMutableTreeNode driverManage = new DefaultMutableTreeNode("罚单查询");
+        DefaultMutableTreeNode myManage = new DefaultMutableTreeNode("个人信息");
+        DefaultMutableTreeNode carManage = new DefaultMutableTreeNode("车辆信息");
+        DefaultMutableTreeNode ticketManage = new DefaultMutableTreeNode("罚单查询");
 
-        root.add(policeManage);
-        root.add(driverManage);
+        root.add(myManage);
+        root.add(carManage);
+        root.add(ticketManage);
         JTree tree = new JTree(root);
         tree.setCellRenderer(myRenderer);
         tree.setBackground(color);
@@ -100,12 +103,27 @@ public class driverUI {
                 //得到当前选中的结点对象
                 Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
 
-                if(policeManage.equals(lastPathComponent)){
-                    sp.setRightComponent(new driverRightSplitPane());
-                    sp.setDividerLocation(200);
-                }else if (driverManage.equals(lastPathComponent)){
-                    sp.setRightComponent(new driverTicketRightSplitPane());
-                    sp.setDividerLocation(200);
+                if(myManage.equals(lastPathComponent)){
+                    try {
+                        sp.setRightComponent(new driverRightSplitPane(driver,jf,password));
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                    sp.setDividerLocation(180);
+                }else if (carManage.equals(lastPathComponent)){
+                    try {
+                        sp.setRightComponent(new driverCarRightSplitPane(driver.getDriverId(),driver));
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                    sp.setDividerLocation(180);
+                } if(ticketManage.equals(lastPathComponent)){
+                    try {
+                        sp.setRightComponent(new driverTicketRightSplitPane(driver.getDriverId(),driver));
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                    sp.setDividerLocation(180);
                 }
             }
         });
@@ -156,9 +174,10 @@ public class driverUI {
 
         upPanel.add(tree2);
 
-        //默认打开界面为警察管理
-        sp.setRightComponent(new adminDriverRightSplitPane());
+        //默认打开界面
+        sp.setRightComponent(new driverRightSplitPane(driver,jf,password));
         jf.add(sp);
+        jf.setResizable(false);
         jf.setVisible(true);
     }
 

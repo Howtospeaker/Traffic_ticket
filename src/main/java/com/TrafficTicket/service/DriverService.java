@@ -8,9 +8,11 @@ import java.util.List;
 public interface DriverService {
     List<DriverTicketView> selectTicketView();
 
-    int updateTicketFine(Integer driverId);
+    int updateTicketFine(String ticketId);
 
-    int login(String loginAct, String loginPwd);
+    Driver login(String loginAct, String loginPwd);
 
     boolean register(Driver driver);
+
+    List<Object> selectOwnTicket(Integer driverId);
 }

@@ -1,6 +1,6 @@
 package com.TrafficTicket.guiMain.mainUI.Admin;
 
-import com.TrafficTicket.guiMain.main.selectIdentity;
+import com.TrafficTicket.guiMain.selectIdentity.selectIdentity;
 import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminCarRightSplitPane;
 import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminDriverRightSplitPane;
 import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminPoliceRightSplitPane;
@@ -66,7 +66,8 @@ public class adminUI {
         //总分割面板//支持连续布局
         JSplitPane sp = new JSplitPane();
         sp.setContinuousLayout(true);
-        sp.setDividerLocation(200);
+        sp.setDividerLocation(180);
+        sp.setEnabled(false);
         sp.setDividerSize(7);
 
         //分隔板左侧
@@ -75,8 +76,9 @@ public class adminUI {
         upPanel.setLayout(new GridLayout(2, 1));
 
         JSplitPane spLeft = new JSplitPane(JSplitPane.VERTICAL_SPLIT, upPanel, downPanel);
-        spLeft.setDividerLocation(300);
+        spLeft.setDividerLocation(230);
         spLeft.setDividerSize(7);
+        spLeft.setEnabled(false);
         sp.setLeftComponent(spLeft);
 
         //树结点设置
@@ -111,30 +113,34 @@ public class adminUI {
 
                 if (policeManage.equals(lastPathComponent)) {
                     try {
-                        sp.setRightComponent(new adminPoliceRightSplitPane());
+                        sp.setRightComponent(new adminPoliceRightSplitPane(jf));
                     } catch (Exception exception) {
                         exception.printStackTrace();
                     }
-                    sp.setDividerLocation(200);
+                    sp.setDividerLocation(180);
                 } else if (driverManage.equals(lastPathComponent)) {
                     try {
-                        sp.setRightComponent(new adminDriverRightSplitPane());
+                        sp.setRightComponent(new adminDriverRightSplitPane(jf));
                     } catch (Exception exception) {
                         exception.printStackTrace();
                     }
-                    sp.setDividerLocation(200);
+                    sp.setDividerLocation(180);
                 }
                 if (ticketManage.equals(lastPathComponent)) {
-                    sp.setRightComponent(new adminTicketRightSplitPane());
-                    sp.setDividerLocation(200);
+                    try {
+                        sp.setRightComponent(new adminTicketRightSplitPane());
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                    sp.setDividerLocation(180);
                 }
                 if (carManage.equals(lastPathComponent)) {
                     try {
-                        sp.setRightComponent(new adminCarRightSplitPane());
+                        sp.setRightComponent(new adminCarRightSplitPane(jf));
                     } catch (Exception exception) {
                         exception.printStackTrace();
                     }
-                    sp.setDividerLocation(200);
+                    sp.setDividerLocation(180);
                 }
             }
         });
@@ -186,8 +192,9 @@ public class adminUI {
         upPanel.add(tree2);
 
         //默认打开界面为警察管理
-        sp.setRightComponent(new adminPoliceRightSplitPane());
+        sp.setRightComponent(new adminPoliceRightSplitPane(jf));
         jf.add(sp);
+        jf.setResizable(false);
         jf.setVisible(true);
     }
 

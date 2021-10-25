@@ -35,16 +35,15 @@ public class adminPoliceRightSplitPane extends Box {
     private Vector titlesV = new Vector();//存储标题
     private Vector<Vector> dataV = new Vector<>();//存储数据
 
-    public adminPoliceRightSplitPane() throws Exception {
+    public adminPoliceRightSplitPane(JFrame jf) throws Exception {
         //垂直布局
         super(BoxLayout.Y_AXIS);
 
         //组装视图
-        JPanel picturePanel = new JPanel();
-        picturePanel.setPreferredSize(new Dimension(1920, 150));
-        picturePanel.setBackground(new Color(0xD31D28));
-
-        this.add(picturePanel);
+        JLabel welcome = new JLabel("欢迎管理员，使用罚单管理系统！                            ");
+        welcome.setPreferredSize(new Dimension(763, 150));
+        welcome.setFont(new Font("宋体", Font.BOLD, 20));
+        this.add(welcome);
 
         JPanel sumPanel = new JPanel();
         sumPanel.setLayout(new GridLayout(1, 2));
@@ -57,22 +56,25 @@ public class adminPoliceRightSplitPane extends Box {
         sumPanel.setBackground(color);
         selectPanel.setBackground(color);
 
-        //TODO 查询事件
+        //查询事件
         inquireText = new JTextField();
         JButton select = new JButton("查询");
         select.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                AdminController adminController = new AdminController();
-                String InquireText = inquireText.getText().trim();
-                Police police = adminController.findPoliceById(InquireText);
-                if (police != null) {
-                    Map<Integer, Object> map = new HashMap<>();
-                    map.put(1, police);
-                } else {
-                    JOptionPane.showMessageDialog(null, "查无此人", "查询失败", JOptionPane.WARNING_MESSAGE);
-                }
+                String ID = inquireText.getText().trim();
+                UIdataUtils.UIdataClear(data, dataV);
+                myTableModel.fireTableDataChanged();
 
+                list.clear();
+                list.add(adminController.findPoliceById(ID));
+                Object[][] data = new Object[0][];
+                try {
+                    data = reflect.ReflectInit(list);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                UIdataUtils.UIdataRefresh(data, dataV);
             }
         });
 
@@ -110,12 +112,28 @@ public class adminPoliceRightSplitPane extends Box {
                 }
             }
         });
-        //TODO 删除事件
+        //删除事件
         JButton delete = new JButton("删除");
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                int selectedRow = jtable.getSelectedRow();
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(null, "请删除修改条目", "警告", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    int result = JOptionPane.showConfirmDialog(jf, "是否修改信息", "修改信息", JOptionPane.OK_CANCEL_OPTION);
+                    if (result == JOptionPane.OK_OPTION) {
 
+                        String POLICEID = jtable.getValueAt(selectedRow, 0).toString();
+                        if (new AdminController().deletePolice(POLICEID)) {
+                            JOptionPane.showMessageDialog(null, "删除成功", "警告", JOptionPane.WARNING_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "删除失败", "警告", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                    if (result == JOptionPane.CANCEL_OPTION) {
+                    }
+                }
             }
         });
         //刷新事件

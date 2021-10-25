@@ -2,7 +2,6 @@ package com.TrafficTicket.guiMain.mainUI.Admin.adminPoliceDialog;
 
 import com.TrafficTicket.controller.AdminController;
 import com.TrafficTicket.entity.Police;
-import com.TrafficTicket.guiMain.main.selectIdentity;
 
 import javax.swing.*;
 import java.awt.*;
@@ -122,16 +121,13 @@ public class updateAdminPoliceDialog {
                     String sexText = sex.isSelected(male.getModel()) ? male.getText() : female.getText();
                     String ageText = age.getText().trim();
 
-                    Police police = new Police(idNumText, nameText, sexText, Integer.valueOf(ageText),policeStationText,  usenameText, passwordText);
-                    if (adminController.updatePolice(police)) {
+                    Police police = new Police(idNumText, nameText, sexText, Integer.valueOf(ageText), policeStationText, usenameText, passwordText);
+                    if (adminController.updatePolice(police,Integer.valueOf(ageText))) {
                         jf2.dispose();
                     }
                 }
                 if (result == JOptionPane.CANCEL_OPTION) {
-
                 }
-
-
             }
         });
 

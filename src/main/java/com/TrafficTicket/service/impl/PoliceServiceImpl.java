@@ -20,20 +20,23 @@ public class PoliceServiceImpl implements PoliceService {
 
     @Override
     public int addTicket(Ticket ticket) {
-        if (policeDao.findTicket(ticket.getTicketId())==1){
-            if (adminDao.findCarId(ticket.getCarId())==1){
+        if (policeDao.findTicket(ticket.getTicketId())==0){
+            if (adminDao.findCarId(ticket.getCarId())!=null){
                 if (adminDao.findDriverId(ticket.getDriverId())!= null){
                     return policeDao.addTicket(ticket);
                 }else {
                     System.out.println("不存在此驾驶员");
+                    JOptionPane.showMessageDialog(null, "不存在此驾驶员", "失败", JOptionPane.WARNING_MESSAGE);
 
                 }
             } else {
                 System.out.println("不存在此车牌号");
+                JOptionPane.showMessageDialog(null, "不存在此车牌号", "失败", JOptionPane.WARNING_MESSAGE);
 
             }
         } else {
-            System.out.println("不存在此罚单");
+            System.out.println("已存在此罚单");
+            JOptionPane.showMessageDialog(null, "已存在此罚单", "失败", JOptionPane.WARNING_MESSAGE);
 
         }
         return 0;
@@ -42,17 +45,22 @@ public class PoliceServiceImpl implements PoliceService {
     @Override
     public int updateTicket(Ticket ticket) {
         if (policeDao.findTicket(ticket.getTicketId()) == 1) {
-            if (adminDao.findCarId(ticket.getCarId()) == 1) {
+            if (adminDao.findCarId(ticket.getCarId()) !=null) {
                 if (adminDao.findDriverId(ticket.getDriverId()) != null) {
                     return policeDao.updateTicket(ticket);
                 } else {
                     System.out.println("不存在此驾驶员");
+                    JOptionPane.showMessageDialog(null, "不存在此驾驶员", "失败", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
                 System.out.println("不存在此车牌号");
+                JOptionPane.showMessageDialog(null, "不存在此车牌号", "失败", JOptionPane.WARNING_MESSAGE);
+
             }
         } else {
             System.out.println("不存在此罚单");
+            JOptionPane.showMessageDialog(null, "不存在此罚单", "失败", JOptionPane.WARNING_MESSAGE);
+
         }
         return 0;
     }
@@ -72,7 +80,7 @@ public class PoliceServiceImpl implements PoliceService {
     }
 
     @Override
-    public int login(String loginAct, String loginPwd) {
+    public Police login(String loginAct, String loginPwd) {
         return policeDao.login(loginAct, loginPwd);
     }
 
@@ -80,11 +88,23 @@ public class PoliceServiceImpl implements PoliceService {
     public boolean register(Police police) {
         if (adminDao.findPolice(police.getPoliceId()) == 0) {
             if (adminDao.addPolice(police) == 1)
-                return true;
+                System.out.println("注册成功");
+                JOptionPane.showMessageDialog(null, "注册成功", "注册成功", JOptionPane.WARNING_MESSAGE);
+            return true;
         } else {
             System.out.println("此交警已存在");
             JOptionPane.showMessageDialog(null, "账号重复或交警编号重复，请重新注册", "注册失败", JOptionPane.WARNING_MESSAGE);
         }
         return false;
+    }
+
+    @Override
+    public List<Object> selectOwnTicket(String policeId) {
+        if (policeDao.selectOwnTicket(policeId)==null){
+            System.out.println("没有信息");
+        }else {
+            return policeDao.selectOwnTicket(policeId);
+        }
+        return null;
     }
 }

@@ -1,74 +1,65 @@
 package com.TrafficTicket.guiMain.mainUI.Police;
 
+
+import com.TrafficTicket.controller.AdminController;
+import com.TrafficTicket.controller.DriverController;
+import com.TrafficTicket.controller.PoliceController;
+import com.TrafficTicket.entity.Driver;
+import com.TrafficTicket.entity.Police;
+import com.TrafficTicket.guiMain.mainUI.Driver.ticketPayDialog;
+import com.TrafficTicket.util.ReflectPutInForm;
+import com.TrafficTicket.util.UIdataUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.Vector;
 
 
 //分割板右边组件
 public class policeTicketRightSplitPane extends Box {
-
-    final int WIDTH = 850;
-    final int HEIGHT = 600;
+    private JTable jTable;
+    private MyTableModel myTableModel;
+    private Object[][] data = {{"无", "无", "无", "无", "无", "无", "无", "无"}};
+    private String policeId;
 
     //创建一维数组
-    Object[] titles = {"罚单编号", "被罚车主", "车牌号", "驾驶证号", "交警代号", "违章时间", "违章地点", "罚款金额", "缴费状态"};
+    Object[] titles = {"罚单编号", "被罚车主身份证号", "车牌号", "交警代号", "违章时间", "违章地点", "罚款金额", "缴费状态"};
     //创建二维数组
-    Object[][] data = {
-            {"李清照", 29, "女","1","1","1","1","1","1"},
-            {"李某", 56, "女","1","1","1","1","1","1"},
-            {"李白", 35, "男","1","1","1","1","1","1"},
-            {"李逵", 99, "男","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李清照", 29, "女","1","1","1","1","1","1"},
-            {"李某", 56, "女","1","1","1","1","1","1"},
-            {"李白", 35, "男","1","1","1","1","1","1"},
-            {"李逵", 99, "男","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李清照", 29, "女","1","1","1","1","1","1"},
-            {"李某", 56, "女","1","1","1","1","1","1"},
-            {"李白", 35, "男","1","1","1","1","1","1"},
-            {"李逵", 99, "男","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李清照", 29, "女","1","1","1","1","1","1"},
-            {"李某", 56, "女","1","1","1","1","1","1"},
-            {"李白", 35, "男","1","1","1","1","1","1"},
-            {"李逵", 99, "男","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李清照", 29, "女","1","1","1","1","1","1"},
-            {"李某", 56, "女","1","1","1","1","1","1"},
-            {"李白", 35, "男","1","1","1","1","1","1"},
-            {"李逵", 99, "男","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-            {"李人", 29, "女","1","1","1","1","1","1"},
-    };
+    PoliceController policeController = new PoliceController();
+    ReflectPutInForm reflect = new ReflectPutInForm();
+    @Autowired
+    List<Object> list;
 
     private Vector titlesV = new Vector();//存储标题
     private Vector<Vector> dataV = new Vector<>();//存储数据
 
-    public policeTicketRightSplitPane() {
+    public policeTicketRightSplitPane(String policeId, Police police, Frame jf) throws Exception {
         //垂直布局
         super(BoxLayout.Y_AXIS);
 
-        //组装视图
-        JPanel picturePanel = new JPanel();
-        picturePanel.setPreferredSize(new Dimension(1920,150));
-        picturePanel.setBackground(new Color(0xD31D28));
+        System.out.println(policeId);
+        this.policeId = policeId;
+        list = policeController.selectOwnTicket(policeId);
+        if (list.size() == 0) {
+            UIdataUtils.UIdataClear(data, dataV);
+        } else {
+            list.forEach(lst -> System.out.println(lst));
+            data = reflect.ReflectInit(list);
+        }
 
-        this.add(picturePanel);
+        //组装视图
+        JLabel welcome = new JLabel("欢迎"+police.getName()+"警官，使用罚单管理系统！                       ");
+        welcome.setPreferredSize(new Dimension(763, 150));
+        welcome.setFont(new Font("宋体", Font.BOLD, 20));
+        this.add(welcome);
 
         JPanel sumPanel = new JPanel();
-        sumPanel.setLayout(new GridLayout(1,2));
+        sumPanel.setLayout(new GridLayout(1, 2));
         JPanel btnPanel = new JPanel();
         btnPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         JPanel selectPanel = new JPanel();
@@ -78,73 +69,116 @@ public class policeTicketRightSplitPane extends Box {
         sumPanel.setBackground(color);
         selectPanel.setBackground(color);
 
-        JButton select = new JButton("查询");
-        JTextField inquireText = new JTextField();
-        inquireText.setPreferredSize(new Dimension(160,20));
-
-        selectPanel.add(select);
-        selectPanel.add(inquireText);
 
         JButton add = new JButton("增加");
-        JButton update = new JButton("修改");
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                new addTicketDialog().init(policeId);
+            }
+        });
+
+
+        JButton pay = new JButton("修改");
+        pay.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                int selectedRow = jTable.getSelectedRow();
+                if (selectedRow == -1) {
+                } else {
+                    String TICKETID = jTable.getValueAt(selectedRow, 0).toString();
+                    Integer DRIVERID = Integer.valueOf(jTable.getValueAt(selectedRow, 1).toString());
+                    String CARID = jTable.getValueAt(selectedRow, 2).toString();
+                    String POLICEID = jTable.getValueAt(selectedRow, 3).toString();
+                    String VIOTIME = jTable.getValueAt(selectedRow, 4).toString();
+                    String VIOADDRESS = jTable.getValueAt(selectedRow, 5).toString();
+                    Integer FINE = Integer.valueOf(jTable.getValueAt(selectedRow, 6).toString());
+                    Integer PAYSTATUS = Integer.valueOf(jTable.getValueAt(selectedRow, 7).toString());
+                    if (PAYSTATUS.equals("无") || PAYSTATUS.equals("1")) {
+                        JOptionPane.showMessageDialog(null, "此罚单不需要修改", "修改失败", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        new updateTicketDialog().init(TICKETID, DRIVERID, CARID, POLICEID, VIOTIME, VIOADDRESS, FINE, PAYSTATUS);
+                    }
+                }
+            }
+        });
+
         JButton delete = new JButton("删除");
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                int selectedRow = jTable.getSelectedRow();
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(null, "请删除修改条目", "警告", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    int result = JOptionPane.showConfirmDialog(jf, "是否修改罚单信息", "修改罚单", JOptionPane.OK_CANCEL_OPTION);
+                    if (result == JOptionPane.OK_OPTION) {
+                        String TicketId = jTable.getValueAt(selectedRow, 0).toString();
+                        if (new PoliceController().deleteTicket(TicketId)) {
+                            JOptionPane.showMessageDialog(null, "删除成功", "警告", JOptionPane.WARNING_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "删除失败", "警告", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                    if (result == JOptionPane.CANCEL_OPTION) {
+                    }
+                }
+            }
+        });
+
+        //刷新事件
+        JButton refresh = new JButton("刷新");
+        refresh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                UIdataUtils.UIdataClear(data, dataV);
+                myTableModel.fireTableDataChanged();//刷新表
+                list.clear();
+                list = policeController.selectOwnTicket(policeId);
+                if (list.size() == 0) {
+                    UIdataUtils.UIdataClear(data, dataV);
+                } else {
+                    list.forEach(lst -> System.out.println(lst));
+                    try {
+                        data = reflect.ReflectInit(list);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                UIdataUtils.UIdataRefresh(data, dataV);
+            }
+        });
 
         btnPanel.add(add);
-        btnPanel.add(update);
+        btnPanel.add(pay);
         btnPanel.add(delete);
+        btnPanel.add(refresh);
 
         sumPanel.add(selectPanel);
         sumPanel.add(btnPanel);
-        sumPanel.setPreferredSize(new Dimension(1920,40));
+        sumPanel.setPreferredSize(new Dimension(1920, 40));
 
         this.add(sumPanel);
-
         //组装表格
-        for (int i = 0; i < titles.length; i++) {
+        for (
+                int i = 0;
+                i < titles.length; i++) {
             titlesV.add(titles[i]);
         }
-        for (int i = 0; i < data.length; i++) {
-            Vector t = new Vector<>();
-            for (int j = 0; j < data[i].length; j++) {
-                t.add(data[i][j]);
-            }
-            dataV.add(t);
-        }
+        UIdataUtils.UIdataRefresh(data, dataV);
+        //定义表格
+        myTableModel = new MyTableModel();
 
-        MyTableModel myTableModel = new MyTableModel();
-        JTable jTable = new JTable(myTableModel);
+        jTable = new JTable(myTableModel);
 
+        JPanel tablePanel = new JPanel();tablePanel.setPreferredSize(new Dimension(1920, 1080));
+        tablePanel.setLayout(new GridLayout(1, 1));
+        JScrollPane jScrollPane = new JScrollPane(jTable);
+        tablePanel.add(jScrollPane);
+        this.add(tablePanel);
         //设置选择模式
         jTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//        JButton jbtn = new JButton("获取选中行数据");
-//        jbtn.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent actionEvent) {
-//                int selectedColumn = jTable.getSelectedColumn();
-//                int selectedRow = jTable.getSelectedRow();
-//                System.out.println("当前选中的行的索引" + selectedRow);
-//                System.out.println("当前选中列的索引" + selectedColumn);
-//
-//                Object value = myTableModel.getValueAt(selectedRow, selectedColumn);
-//                System.out.println("当前第一格的内容" + value);
-//            }
-//        });
-
-
-
-        /*测试界面*/
-        JPanel test = new JPanel();
-        test.setPreferredSize(new Dimension(1920,1080));
-        test.setLayout(new GridLayout(1,1));
-        JScrollPane jScrollPane = new JScrollPane(jTable);
-        test.add(jScrollPane);
-        this.add(test);
-
-
-
     }
-
-
 
     private class MyTableModel extends AbstractTableModel {
 

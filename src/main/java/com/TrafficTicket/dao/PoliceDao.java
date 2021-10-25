@@ -1,5 +1,6 @@
 package com.TrafficTicket.dao;
 
+import com.TrafficTicket.entity.Police;
 import com.TrafficTicket.entity.Ticket;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -17,5 +18,7 @@ public interface PoliceDao {
 
     List<Ticket> selectAllTicket();
 
-    int login(@Param("loginAct") String loginAct,@Param("loginPwd") String loginPwd);
+    Police login(@Param("loginAct") String loginAct, @Param("loginPwd") String loginPwd);
+
+    List<Object> selectOwnTicket(String policeId);
 }

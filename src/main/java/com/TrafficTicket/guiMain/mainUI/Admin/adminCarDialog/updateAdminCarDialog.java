@@ -1,5 +1,8 @@
 package com.TrafficTicket.guiMain.mainUI.Admin.adminCarDialog;
 
+import com.TrafficTicket.controller.AdminController;
+import com.TrafficTicket.entity.Car;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -39,7 +42,6 @@ public class updateAdminCarDialog {
         filedPanel.add(jDriverId);
         filedPanel.add(jLicenseNum);
 
-
         //输入信息部分
         CarId = new JTextField(CARID);
         DriverId = new JTextField(DRIVERID);
@@ -65,12 +67,20 @@ public class updateAdminCarDialog {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-             /*   AdminController adminController = new AdminController();
+                int result = JOptionPane.showConfirmDialog(jf2, "是否修改信息", "修改信息", JOptionPane.OK_CANCEL_OPTION);
+                if (result == JOptionPane.OK_OPTION) {
+                    AdminController adminController = new AdminController();
+                    String carIdText = CarId.getText().trim();
+                    Integer driverIdText = Integer.valueOf(DriverId.getText().trim());
+                    Integer licenseNumText = Integer.valueOf(LicenseNum.getText().trim());
 
-                //TODO 修改
-                if (adminController.updateDriver(driver)) {
-                    jf2.dispose();
-                }*/
+                    Car car = new Car(carIdText,driverIdText,licenseNumText);
+                    if (adminController.updateCarInfo(car)) {
+                        jf2.dispose();
+                    }
+                }
+                if (result == JOptionPane.CANCEL_OPTION) {
+                }
             }
         });
 
@@ -83,7 +93,6 @@ public class updateAdminCarDialog {
             }
         });
         c.add(buttonPanel, "South");
-
 
         jf2.setResizable(false);
         jf2.setVisible(true);

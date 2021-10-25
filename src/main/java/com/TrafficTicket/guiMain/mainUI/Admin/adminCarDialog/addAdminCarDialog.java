@@ -39,16 +39,16 @@ public class addAdminCarDialog {
         filedPanel.add(jLicenseNum);
         //输入信息部分
         JTextField CarId = new JTextField();
-        JTextField DriverId = new JTextField();
+        JTextField DriverNum = new JTextField();
         JTextField LicenseNum = new JTextField();
 
         CarId.setBounds(110, 20, 140, 20);
-        DriverId.setBounds(110, 60, 140, 20);
-        LicenseNum.setBounds(165, 100, 140, 20);
+        DriverNum.setBounds(110, 60, 140, 20);
+        LicenseNum.setBounds(110, 100, 140, 20);
 
         //文本框添加
         filedPanel.add(CarId);
-        filedPanel.add(DriverId);
+        filedPanel.add(DriverNum);
         filedPanel.add(LicenseNum);
 
         c.add(filedPanel, "Center");
@@ -64,10 +64,10 @@ public class addAdminCarDialog {
                 DriverController driverController = new DriverController();
 
                 String CarIdText = CarId.getText().trim();
-                String DriverIdText = DriverId.getText().trim();
-                String LicenseNumText = LicenseNum.getText().trim();
+                Integer DriverNumText =Integer.valueOf(DriverNum.getText().trim()) ;
+                Integer LicenseNumText = Integer.valueOf(LicenseNum.getText().trim());
 
-                Car car = new Car(CarIdText, Integer.parseInt(DriverIdText), Integer.parseInt(LicenseNumText));
+                Car car = new Car(CarIdText,DriverNumText, LicenseNumText);
                 if (new AdminController().addCarInfo(car)) {
                     JOptionPane.showMessageDialog(null, "添加成功", "添加失败", JOptionPane.WARNING_MESSAGE);
                     jf2.dispose();

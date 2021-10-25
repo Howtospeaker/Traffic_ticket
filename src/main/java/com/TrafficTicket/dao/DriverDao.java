@@ -9,13 +9,15 @@ import java.util.List;
 public interface DriverDao {
     List<DriverTicketView> selectTicketView();
 
-    int findTicketByDriver(Integer driverId);
+    int findTicketByTicketId(String ticketId);
 
-    int updateTicketFine(Integer driverId);
+    int updateTicketFine(String ticketId);
 
-    int findTicketFine(Integer driverId);
+    int findTicketFine(String ticketId);
 
-    int login(@Param("loginAct") String loginAct,@Param("loginPwd") String loginPwd);
+    Driver login(@Param("loginAct") String loginAct,@Param("loginPwd") String loginPwd);
 
     boolean register(Driver driver);
+
+    List<Object> selectOwnTicket(Integer driverId);
 }

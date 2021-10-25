@@ -108,7 +108,7 @@ public class addAdminDriverDialog {
 
                 Driver driver = new Driver(Integer.parseInt(idNumText), nameText, sexText, Integer.parseInt(ageText), Integer.valueOf(driverNumText), usenameText, passwordText);
 
-                if (driverController.register(driver)) {
+                if (driverController.register(driver,Integer.parseInt(ageText))) {
                     JOptionPane.showMessageDialog(null, "添加成功", "添加失败", JOptionPane.WARNING_MESSAGE);
                     jf2.dispose();
                 }else {

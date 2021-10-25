@@ -19,8 +19,8 @@
     <select id="findDriverId" resultType="Driver">
         select * from driver where driverId = #{driverId}
     </select>
-    <select id="findCarId" resultType="int">
-        select count(carId) from carInfo where carId = #{carId}
+    <select id="findCarId" resultType="Car">
+        select * from carInfo where carId = #{carId}
     </select>
     <!--对交警信息表的操作-->
     <insert id="addPolice">
@@ -41,14 +41,14 @@
 
     <!--查询罚单视图-->
     <select id="selectTicketView" resultType="AdminTicketView">
-        SELECT * FROM adminticketview
+        SELECT * FROM ticketInfo
     </select>
 
     <update id="updateDriver">
         update driver set name=#{name},sex=#{sex},age=#{age},driverNum=#{driverNum},loginPwd=#{loginPwd} where driverId=#{driverId}
     </update>
     <select id="findPoliceById" resultType="Police">
-        select * from policeInfo by policeId=#{policeId}
+        select * from policeInfo where policeId=#{policeId}
     </select>
     <select id="findCarInfo" resultType="Car">
         select * from carInfo where driverId=#{driverId}
@@ -66,4 +66,16 @@
     <delete id="deleteDriver">
         delete from driver where driverId=#{driverId}
     </delete>
+    <select id="findTicketByCarId" resultType="Ticket">
+        select * from ticketinfo where carId=#{carId}
+    </select>
+    <select id="findDriverNum" resultType="int">
+        select count(*) from driver where driverNum=#{driverNum}
+    </select>
+    <select id="findDriverLoginAct" resultType="int">
+        select count(*) from driver where loginAct=#{loginAct}
+    </select>
+    <select id="selectOwnCarInfo" resultType="Car">
+        select * from carinfo where driverId=#{driverId}
+    </select>
 </mapper>

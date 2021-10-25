@@ -1,10 +1,7 @@
 package com.TrafficTicket.guiMain.mainUI.Admin.adminDriverDialog;
 
 import com.TrafficTicket.controller.AdminController;
-import com.TrafficTicket.controller.DriverController;
-import com.TrafficTicket.entity.Car;
 import com.TrafficTicket.entity.Driver;
-import com.TrafficTicket.guiMain.main.selectIdentity;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,8 +10,8 @@ import java.awt.event.ActionListener;
 
 
 public class updateAdminDriverDialog {
-    private JTextField idNum;
-    private JTextField driverNum;
+    private JLabel idNum;
+    private JLabel driverNum;
     private JTextField age;
     private JTextField password;
     private JLabel usename;
@@ -62,8 +59,8 @@ public class updateAdminDriverDialog {
 
 
         //输入信息部分
-        idNum = new JTextField(ID);
-        driverNum = new JTextField(DNUM);
+        idNum = new JLabel(ID);
+        driverNum = new JLabel(DNUM);
         age = new JTextField(AGE);
         password = new JTextField("请重新输入密码");
         usename = new JLabel(USERNAME);
@@ -102,7 +99,7 @@ public class updateAdminDriverDialog {
         c.add(filedPanel, "Center");
         //按钮设置
         JPanel buttonPanel = new JPanel();
-        //修改时间
+        //修改事件
         JButton button1 = new JButton("修改");
         buttonPanel.add(button1);
         //修改行为
@@ -123,12 +120,11 @@ public class updateAdminDriverDialog {
                     String passwordText = password.getText().trim();
 
                     Driver driver = new Driver(Integer.parseInt(idNumText), nameText, sexText, Integer.parseInt(ageText), Integer.valueOf(driverNumText), usenameText, passwordText);
-                    if (adminController.updateDriver(driver)) {
+                    if (adminController.updateDriver(driver,Integer.parseInt(ageText))) {
                         jf2.dispose();
                     }
                 }
                 if (result == JOptionPane.CANCEL_OPTION) {
-
                 }
 
             }

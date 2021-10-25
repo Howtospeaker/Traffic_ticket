@@ -104,13 +104,18 @@ public class dRegistrationInterface {
                 String licenseNumText = licenseNum.getText().trim();
                 String ageText = age.getText().trim();
                 String passwordText = password.getText().trim();
+                String passwordAgainText = passwordAgain.getText().trim();
 
-                Driver driver = new Driver(Integer.parseInt(idNumText), nameText, sexText, Integer.parseInt(ageText), Integer.valueOf(licenseNumText), usenameText, passwordText);
-
-                if (driverController.register(driver)) {
-                    new dLoginInterface().init();
-                    jf2.dispose();
+                if(passwordText.equals(passwordAgainText)){
+                    Driver driver = new Driver(Integer.parseInt(idNumText), nameText, sexText, Integer.parseInt(ageText), Integer.valueOf(licenseNumText), usenameText, passwordText);
+                    if (driverController.register(driver,Integer.parseInt(ageText))) {
+                        new dLoginInterface().init();
+                        jf2.dispose();
+                    }
+                }else {
+                    JOptionPane.showMessageDialog(null, "两次输入的密码不相同", "注册失败", JOptionPane.WARNING_MESSAGE);
                 }
+
             }
         });
 

@@ -6,23 +6,23 @@
     <select id="selectTicketView" resultType="DriverTicketView">
         select * from driverTicketView
     </select>
-    <select id="findTicketByDriver" resultType="int">
-        select count(1) from ticketInfo where driverId=#{driverId}
-    </select>
     <update id="updateTicketFine">
-        update ticketInfo set fine=1 where driverId=#{driverId}
+        update ticketInfo set payStatus=1 where ticketId=#{ticketId}
     </update>
     <select id="findTicketFine" resultType="int">
-        select fine from ticketInfo where driverId=#{driverId} as
+        select count(*) from ticketInfo where ticketId=#{ticketId} and payStatus=0
     </select>
 
     <!--驾驶员登录-->
-    <select id="login" resultType="int">
-        select count(*) from driver where loginAct=#{loginAct} and loginPwd=#{loginPwd}
+    <select id="login" resultType="Driver">
+        select * from driver where loginAct=#{loginAct} and loginPwd=#{loginPwd}
     </select>
     <!--驾驶员注册-->
     <insert id="register">
         insert into driver(driverId,name,sex,age,driverNum,loginAct,loginPwd)
         values (#{driverId},#{name},#{sex},#{age},#{driverNum},#{loginAct},#{loginPwd})
     </insert>
+    <select id="selectOwnTicket" resultType="Ticket">
+        select * from ticketinfo where driverId=#{driverId}
+    </select>
 </mapper>

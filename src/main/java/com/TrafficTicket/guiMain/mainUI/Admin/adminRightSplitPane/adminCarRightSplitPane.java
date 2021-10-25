@@ -1,13 +1,10 @@
 package com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane;
 
 import com.TrafficTicket.controller.AdminController;
-import com.TrafficTicket.entity.Car;
 import com.TrafficTicket.guiMain.mainUI.Admin.adminCarDialog.addAdminCarDialog;
 import com.TrafficTicket.guiMain.mainUI.Admin.adminCarDialog.updateAdminCarDialog;
-import com.TrafficTicket.guiMain.mainUI.Admin.adminDriverDialog.*;
-import com.TrafficTicket.guiMain.mainUI.Admin.adminPoliceDialog.addAdminPoliceDialog;
-import com.TrafficTicket.guiMain.mainUI.Admin.adminPoliceDialog.updateAdminPoliceDialog;
 import com.TrafficTicket.util.ReflectPutInForm;
+import com.TrafficTicket.util.UIdataUtils;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
@@ -32,16 +29,15 @@ public class adminCarRightSplitPane extends Box {
     private Vector titlesV = new Vector();//存储标题
     private Vector<Vector> dataV = new Vector<>();//存储数据
 
-    public adminCarRightSplitPane() throws Exception {
+    public adminCarRightSplitPane(JFrame jf) throws Exception {
         //垂直布局
         super(BoxLayout.Y_AXIS);
 
         //组装视图
-        JPanel picturePanel = new JPanel();
-        picturePanel.setPreferredSize(new Dimension(1920, 150));
-        picturePanel.setBackground(new Color(0xD31D28));
-
-        this.add(picturePanel);
+        JLabel welcome = new JLabel("欢迎管理员，使用罚单管理系统！                            ");
+        welcome.setPreferredSize(new Dimension(763, 150));
+        welcome.setFont(new Font("宋体", Font.BOLD, 20));
+        this.add(welcome);
 
         JPanel sumPanel = new JPanel();
         sumPanel.setLayout(new GridLayout(1, 2));
@@ -53,9 +49,27 @@ public class adminCarRightSplitPane extends Box {
         btnPanel.setBackground(color);
         sumPanel.setBackground(color);
         selectPanel.setBackground(color);
-
+        //查询事件
         JButton select = new JButton("查询");
         JTextField inquireText = new JTextField();
+        select.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String CarId = inquireText.getText().trim();
+                UIdataUtils.UIdataClear(data, dataV);
+                myTableModel.fireTableDataChanged();
+
+                list.clear();
+                list.add(adminController.findCarByCarId(CarId));
+                Object[][] data = new Object[0][];
+                try {
+                    data = reflect.ReflectInit(list);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                UIdataUtils.UIdataRefresh(data, dataV);
+            }
+        });
         inquireText.setPreferredSize(new Dimension(160, 20));
 
         selectPanel.add(select);
@@ -82,21 +96,52 @@ public class adminCarRightSplitPane extends Box {
                     String CARID = jtable.getValueAt(selectedRow, 0).toString();
                     String DRIVERID = jtable.getValueAt(selectedRow, 1).toString();
                     String LICENSENUM = jtable.getValueAt(selectedRow, 2).toString();
-                    new updateAdminCarDialog().init(CARID,DRIVERID,LICENSENUM);
+                    new updateAdminCarDialog().init(CARID, DRIVERID, LICENSENUM);
                 }
-                myTableModel.fireTableDataChanged();
             }
         });
 
         //删除事件
         JButton delete = new JButton("删除");
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                int selectedRow = jtable.getSelectedRow();
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(null, "请选择删除条目", "警告", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    int result = JOptionPane.showConfirmDialog(jf, "是否修改信息", "修改信息", JOptionPane.OK_CANCEL_OPTION);
+                    if (result == JOptionPane.OK_OPTION) {
+                        String CARID = jtable.getValueAt(selectedRow, 0).toString();
+                        if (new AdminController().deleteCarInfo(CARID)) {
+                            JOptionPane.showMessageDialog(null, "删除成功", "警告", JOptionPane.WARNING_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "删除失败", "警告", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                    if (result == JOptionPane.CANCEL_OPTION) {
+                    }
+                }
+            }
+        });
 
         //刷新事件
         JButton refresh = new JButton("刷新");
         refresh.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                myTableModel.fireTableDataChanged();
+                UIdataUtils.UIdataClear(data, dataV);
+                myTableModel.fireTableDataChanged();//刷新表
+
+                list.clear();
+                list = adminController.selectAllCarInfo();
+                Object[][] data = new Object[0][];
+                try {
+                    data = reflect.ReflectInit(list);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                UIdataUtils.UIdataRefresh(data, dataV);
             }
         });
 
@@ -114,13 +159,7 @@ public class adminCarRightSplitPane extends Box {
         for (int i = 0; i < titles.length; i++) {
             titlesV.add(titles[i]);
         }
-        for (int i = 0; i < data.length; i++) {
-            Vector t = new Vector<>();
-            for (int j = 0; j < data[i].length; j++) {
-                t.add(data[i][j]);
-            }
-            dataV.add(t);
-        }
+        UIdataUtils.UIdataRefresh(data, dataV);
         //定义表格
         myTableModel = new MyTableModel();
         jtable = new JTable(myTableModel);
@@ -133,6 +172,7 @@ public class adminCarRightSplitPane extends Box {
         //设置选择模式
         jtable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
+
     private class MyTableModel extends AbstractTableModel {
 
         //行的大小

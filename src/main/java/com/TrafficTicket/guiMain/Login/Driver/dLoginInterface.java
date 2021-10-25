@@ -1,8 +1,9 @@
 package com.TrafficTicket.guiMain.Login.Driver;
 
 import com.TrafficTicket.controller.DriverController;
+import com.TrafficTicket.entity.Driver;
 import com.TrafficTicket.guiMain.mainUI.Driver.*;
-import com.TrafficTicket.guiMain.main.selectIdentity;
+import com.TrafficTicket.guiMain.selectIdentity.selectIdentity;
 
 import javax.swing.*;
 import java.awt.*;
@@ -65,13 +66,14 @@ public class dLoginInterface {
                 System.out.println(passwordText);
 
                 //访问登录接口
-                if (driverController.login(userNameText, passwordText)) {
+                Driver driver = driverController.login(userNameText, passwordText);
+                if (driver != null) {
                     try {
-                        new driverUI().init();
+                        new driverUI().init(driver,passwordText);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    ;
+
                     jf.dispose();
                 }
             }

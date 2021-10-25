@@ -1,40 +1,42 @@
 package com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane;
 
+import com.TrafficTicket.controller.AdminController;
+import com.TrafficTicket.util.ReflectPutInForm;
+import com.TrafficTicket.util.UIdataUtils;
+
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.Vector;
 
 
 //分割板右边组件
 public class adminTicketRightSplitPane extends Box {
+    private MyTableModel myTableModel;
 
     //创建一维数组
-    Object[] titles = {"罚单编号", "身份证号", "车牌号", "交警代号", "违章地点", "违章时间", "罚款金额", "缴费状态"};
+    Object[] titles = {"罚单编号", "身份证号", "车牌号", "交警代号", "违章时间", "违章地点", "罚款金额", "缴费状态"};
     //创建二维数组
-    Object[][] data = {
-            {"李清照", 29, "女", "1", "1", "1", "1", "1"},
-            {"李某", 56, "女", "1", "1", "1", "1", "1"},
-            {"李白", 35, "男", "1", "1", "1", "1", "1"},
-            {"李逵", 99, "男", "1", "1", "1", "1", "1"},
-            {"李人", 29, "女", "1", "1", "1", "1", "1"},
-            {"李人", 29, "女", "1", "1", "1", "1", "1"},
-            {"李人", 29, "女", "1", "1", "1", "1", "1"}
-    };
+    AdminController adminController = new AdminController();
+    List<Object> list = adminController.selectTicketView();
+    ReflectPutInForm reflect = new ReflectPutInForm();
+    Object[][] data = reflect.ReflectInit(list);
 
     private Vector titlesV = new Vector();//存储标题
     private Vector<Vector> dataV = new Vector<>();//存储数据
 
-    public adminTicketRightSplitPane() {
+    public adminTicketRightSplitPane() throws Exception {
         //垂直布局
         super(BoxLayout.Y_AXIS);
 
         //组装视图
-        JPanel picturePanel = new JPanel();
-        picturePanel.setPreferredSize(new Dimension(1920, 150));
-        picturePanel.setBackground(new Color(0xD31D28));
-
-        this.add(picturePanel);
+        JLabel welcome = new JLabel("          欢迎管理员，使用罚单管理系统！");
+        welcome.setPreferredSize(new Dimension(763, 150));
+        welcome.setFont(new Font("宋体", Font.BOLD, 20));
+        this.add(welcome);
 
         JPanel sumPanel = new JPanel();
         sumPanel.setLayout(new GridLayout(1, 2));
@@ -46,15 +48,50 @@ public class adminTicketRightSplitPane extends Box {
         btnPanel.setBackground(color);
         sumPanel.setBackground(color);
         selectPanel.setBackground(color);
-
+        //查询事件
         JButton select = new JButton("查询");
         JTextField inquireText = new JTextField();
+        select.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String carID = inquireText.getText().trim();
+                UIdataUtils.UIdataClear(data, dataV);
+                myTableModel.fireTableDataChanged();
+
+                list.clear();
+                list = adminController.findTicketByCarId(carID);
+                Object[][] data = new Object[0][];
+                try {
+                    data = reflect.ReflectInit(list);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                UIdataUtils.UIdataRefresh(data, dataV);
+            }
+        });
         inquireText.setPreferredSize(new Dimension(160, 20));
 
         selectPanel.add(select);
         selectPanel.add(inquireText);
-
-
+        //刷新事件
+        JButton refresh = new JButton("刷新");
+        refresh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                UIdataUtils.UIdataClear(data, dataV);
+                myTableModel.fireTableDataChanged();//刷新表
+                list.clear();
+                list = adminController.selectTicketView();
+                Object[][] data = new Object[0][];
+                try {
+                    data = reflect.ReflectInit(list);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                UIdataUtils.UIdataRefresh(data, dataV);
+            }
+        });
+        btnPanel.add(refresh);
         sumPanel.add(selectPanel);
         sumPanel.add(btnPanel);
         sumPanel.setPreferredSize(new Dimension(1920, 40));
@@ -73,7 +110,7 @@ public class adminTicketRightSplitPane extends Box {
             dataV.add(t);
         }
         //定义表格
-        MyTableModel myTableModel = new MyTableModel();
+        myTableModel = new MyTableModel();
         JTable jTable = new JTable(myTableModel);
         JPanel tablePanel = new JPanel();
         tablePanel.setPreferredSize(new Dimension(1920, 1080));
@@ -84,19 +121,6 @@ public class adminTicketRightSplitPane extends Box {
 
         //设置选择模式
         jTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//        JButton jbtn = new JButton("获取选中行数据");
-//        jbtn.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent actionEvent) {
-//                int selectedColumn = jTable.getSelectedColumn();
-//                int selectedRow = jTable.getSelectedRow();
-//                System.out.println("当前选中的行的索引" + selectedRow);
-//                System.out.println("当前选中列的索引" + selectedColumn);
-//
-//                Object value = myTableModel.getValueAt(selectedRow, selectedColumn);
-//                System.out.println("当前第一格的内容" + value);
-//            }
-//        });
     }
 
 

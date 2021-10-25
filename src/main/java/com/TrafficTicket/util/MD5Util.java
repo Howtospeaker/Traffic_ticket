@@ -31,6 +31,6 @@ public class MD5Util {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(getMD5("1234"));
+		System.out.println(getMD5("123"));
 	}
 }

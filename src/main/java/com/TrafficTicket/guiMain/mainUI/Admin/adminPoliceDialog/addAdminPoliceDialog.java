@@ -104,7 +104,7 @@ public class addAdminPoliceDialog{
                 String policeStationText = policeStation.getText().trim();
 
                 Police police = new Police(idNumText, nameText, sexText, Integer.valueOf(ageText), policeStationText, usenameText, passwordText);
-                if (policeController.register(police)) {
+                if (policeController.register(police,Integer.valueOf(ageText))) {
                     JOptionPane.showMessageDialog(null, "添加成功", "添加失败", JOptionPane.WARNING_MESSAGE);
                     jf2.dispose();
                 }else {

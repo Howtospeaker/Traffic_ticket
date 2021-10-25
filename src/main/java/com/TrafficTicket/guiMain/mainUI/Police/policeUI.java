@@ -1,7 +1,7 @@
 package com.TrafficTicket.guiMain.mainUI.Police;
 
-import com.TrafficTicket.guiMain.main.selectIdentity;
-import com.TrafficTicket.guiMain.mainUI.Admin.adminRightSplitPane.adminPoliceRightSplitPane;
+import com.TrafficTicket.entity.Police;
+import com.TrafficTicket.guiMain.selectIdentity.selectIdentity;
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
@@ -15,8 +15,8 @@ import java.awt.event.ActionListener;
 public class policeUI {
 
     //组装视图
-    public void init() throws Exception {
-        JFrame jf = new JFrame("驾驶员操作界面");
+    public void init(Police police, String password) throws Exception {
+        JFrame jf = new JFrame("交警操作界面");
         jf.setSize(1000,600);
         jf.setLocationRelativeTo(null);
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -62,7 +62,8 @@ public class policeUI {
         //总分割面板//支持连续布局
         JSplitPane sp = new JSplitPane();
         sp.setContinuousLayout(true);
-        sp.setDividerLocation(200);
+        sp.setDividerLocation(180);
+        sp.setEnabled(false);
         sp.setDividerSize(7);
 
         //分隔板左侧
@@ -71,8 +72,9 @@ public class policeUI {
         upPanel.setLayout(new GridLayout(2,1));
 
         JSplitPane spLeft = new JSplitPane(JSplitPane.VERTICAL_SPLIT,upPanel,downPanel);
-        spLeft.setDividerLocation(300);
+        spLeft.setDividerLocation(230);
         spLeft.setDividerSize(7);
+        spLeft.setEnabled(false);
         sp.setLeftComponent(spLeft);
 
         //树结点设置
@@ -100,11 +102,19 @@ public class policeUI {
                 Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
 
                 if(policeManage.equals(lastPathComponent)){
-                    sp.setRightComponent(new policeRightSplitPane());
-                    sp.setDividerLocation(200);
+                    try {
+                        sp.setRightComponent(new policeRightSplitPane(police,jf,password));
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                    sp.setDividerLocation(180);
                 }else if (driverManage.equals(lastPathComponent)){
-                    sp.setRightComponent(new policeTicketRightSplitPane());
-                    sp.setDividerLocation(200);
+                    try {
+                        sp.setRightComponent(new policeTicketRightSplitPane(police.getPoliceId(),police,jf));
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                    sp.setDividerLocation(180);
                 }
             }
         });
@@ -156,8 +166,10 @@ public class policeUI {
         upPanel.add(tree2);
 
         //默认打开界面为警察管理
-        sp.setRightComponent(new adminPoliceRightSplitPane());
+        sp.setRightComponent(new policeRightSplitPane(police,jf,password));
         jf.add(sp);
+
+        jf.setResizable(false);
         jf.setVisible(true);
     }
 

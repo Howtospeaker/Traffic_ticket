@@ -14,7 +14,9 @@ public interface PoliceService {
 
     List<Ticket> selectAllTicket();
 
-    int login(String loginAct, String loginPwd);
+    Police login(String loginAct, String loginPwd);
 
     boolean register(Police police);
+
+    List<Object> selectOwnTicket(String policeId);
 }

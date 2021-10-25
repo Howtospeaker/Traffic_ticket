@@ -1,9 +1,6 @@
 package com.TrafficTicket.service;
 
-import com.TrafficTicket.entity.AdminTicketView;
-import com.TrafficTicket.entity.Car;
-import com.TrafficTicket.entity.Driver;
-import com.TrafficTicket.entity.Police;
+import com.TrafficTicket.entity.*;
 
 import java.util.List;
 
@@ -24,7 +21,7 @@ public interface AdminService {
 
     List<Object> selectAllPolice();
 
-    List<AdminTicketView> selectTicketView();
+    List<Object> selectTicketView();
 
     int login(String loginAct, String loginPwd, String ip);
 
@@ -37,4 +34,10 @@ public interface AdminService {
     int deleteDriver(Integer id);
 
     Driver findDriverById(Integer driverId);
+
+    List<Object> findTicketByCarId(String carId);
+
+    Car findCarByCarId(String carId);
+
+    List<Object> selectOwnCarInfo(Integer driverId);
 }

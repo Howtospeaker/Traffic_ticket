@@ -1,9 +1,6 @@
 package com.TrafficTicket.dao;
 
-import com.TrafficTicket.entity.AdminTicketView;
-import com.TrafficTicket.entity.Car;
-import com.TrafficTicket.entity.Driver;
-import com.TrafficTicket.entity.Police;
+import com.TrafficTicket.entity.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -15,7 +12,7 @@ public interface AdminDao {
     int deleteCarInfo(String carId);
     List<Object> selectAllCarInfo();
     Driver findDriverId(Integer driverId);
-    int findCarId(String carId);
+    Car findCarId(String carId);
 
     //对交警信息表的操作
     int addPolice(Police police);
@@ -25,7 +22,7 @@ public interface AdminDao {
     int findPolice(String policeId);
 
     //查询罚单视图
-    List<AdminTicketView> selectTicketView();
+    List<Object> selectTicketView();
 
     //管理员登陆操作
     int findAdminIp(String allowsIp);
@@ -40,4 +37,12 @@ public interface AdminDao {
     List<Object> selectAllDriver();
 
     int deleteDriver(@Param("driverId") Integer id);
+
+    List<Object> findTicketByCarId(String carId);
+
+    int findDriverNum(Integer driverNum);
+
+    int findDriverLoginAct(String loginAct);
+
+    List<Object> selectOwnCarInfo(Integer driverId);
 }

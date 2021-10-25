@@ -52,7 +52,6 @@ public class pRegistrationInterface {
 
         JTextField usename = new JTextField();
         JTextField name = new JTextField();
-//        JTextField sex = new JTextField();
 
         JRadioButton male = new JRadioButton("男", true);
         JRadioButton female = new JRadioButton("女", false);
@@ -102,13 +101,17 @@ public class pRegistrationInterface {
                 String sexText = sex.isSelected(male.getModel()) ? male.getText() : female.getText();
                 String idNumText = idNum.getText().trim();
                 String ageText = age.getText().trim();
-                String passwordText = password.getText().trim();
                 String policeStationText = policeStation.getText().trim();
-
-                Police police = new Police(idNumText, nameText, sexText, Integer.valueOf(ageText), policeStationText, usenameText, passwordText);
-                if (policeController.register(police)) {
-                    new dLoginInterface().init();
-                    jf2.dispose();
+                String passwordText = password.getText().trim();
+                String passwordAgainText = passwordAgain.getText().trim();
+                if(passwordText.equals(passwordAgainText)){
+                    Police police = new Police(idNumText, nameText, sexText, Integer.valueOf(ageText), policeStationText, usenameText, passwordText);
+                    if (policeController.register(police,Integer.valueOf(ageText))) {
+                        new pLoginInterface().init();
+                        jf2.dispose();
+                    }
+                }else {
+                    JOptionPane.showMessageDialog(null, "两次输入的密码不相同", "注册失败", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
@@ -119,7 +122,7 @@ public class pRegistrationInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 jf2.dispose();
-                new dLoginInterface().init();
+                new pLoginInterface().init();
             }
         });
 
